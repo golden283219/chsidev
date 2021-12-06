@@ -1,0 +1,255 @@
+
+{% extends '../layouts/base.html' %}
+
+
+{% block title %}
+cases page
+{% endblock %}
+
+{% load static %}
+{% block styles %}
+<link href="{% static 'admin-account/css/casses.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <div class="filters">
+            <div class="name-filter form-input-container">
+                <input class="form-input" type="text" id="name-input" >
+                <label for="name-input">Име</label>
+                <i class="fas fa-search"></i>
+            </div>
+            <!-- todo_back ===> for just (supervisor - admin) -->
+            {% if request.user.get_user_type == "admin" or request.user.get_user_type == "supervisor" %}
+                <div class="asc-dec-filter form-input-container">
+            {% else %}
+                <div class="asc-dec-filter full-width form-input-container">
+            {% endif %}
+                <div class="select-arraw"></div>
+                <select class="form-input" id="asc-dec">
+{#                    <option value="pk">Всички</option> TODO Check if option will be enabled#}
+                    <option value="ascending">възходящ</option>
+                    <option value="descending">низходящ</option>
+                </select>
+                <label for="asc-dec">Сортирай по</label>
+            </div>
+
+            <div class="new-user-container">
+                <!-- todo_back ===> check on each if with the correct role which is on upper command -->
+                
+                <!--todo_back==> ****Admin*** -->
+                {% if request.user.get_user_type == "admin" %}
+                <button type="button" class="main-btn btn-blue">
+                    <span class="mobile btn-plus">
+                        <img src="../../static/images/group.svg">
+                    </span>
+                    <span class="d-none d-md-inline">ПОТРЕБИТЕЛИ</span>
+                </button>
+                {% endif %}
+                <!-- ***supervisor*** -->
+                {% if request.user.get_user_type == "supervisor" %}
+                <button type="button" onclick='location.href ="{%url "case" %}"' class="main-btn btn-blue">
+                    <span class="mobile btn-plus">+</span>
+                    <span class="d-none d-md-inline">СЪЗДАЙ НОВО ДЕЛО</span>
+                </button>
+                {% endif %}
+
+                <!-- todo_back==> ***Manager ===> there is no button in manager case *** -->
+                {% if "sd" == "s" %}
+                <!-- <button type="button" class="main-btn btn-blue">
+                    <span class="mobile btn-plus">+</span>
+                    <span class="d-none d-md-inline">СЪЗДАЙ НОВО ДЕЛО</span>
+                </button> -->
+                {% endif %}
+
+                <!-- todo_back ***lawyer ===> there is no button in lawyer case*** -->
+                {% if "sd" == "s" %}
+                <!-- <button type="button" class="main-btn btn-blue">
+                    <span class="mobile btn-plus">+</span>
+                    <span class="d-none d-md-inline">СЪЗДАЙ НОВО ДЕЛО</span>
+                </button> -->
+                {% endif %}
+
+          
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<section class="page-content supervisor">
+    <div class="container">
+        <!-- *** Alert message *** -->
+      <!-- todo_back ===> this section in just (supervisor and lawyer) ==> check on the role -->
+{#        <div class="row alert-message">#}
+{#            <div class="alert alert-success success-alert" role="alert">#}
+{#                Дело 00056 е създадено успешно!#}
+{#              </div>#}
+{#        </div>#}
+        <div class="row mt-3">
+        {% for case in cases %}
+            <div class="case-section bg-section-{% if case.status == 1 %}orange
+{% endif %}{% if case.status == 2 %}green{% endif %}{% if case.status == 3 %}gray{% endif %}"
+                 onclick='location.href ="{%url "lawyer-case-details" %}"'>
+                <div id="wrapper">
+                    <div class="parallelogram "></div>
+                    <div class="rectangle"></div>
+                </div>
+                <div class="case">
+                    <div class="case-content">
+                        <div class="case-title-status-content">
+                            <span class="case-title">{{ case.id }}</span>
+                            <div>
+                                <div class="case-status">
+                                    <div class="circle"></div>
+                                    <span> {{ case.get_status_display }}</span>
+                                </div>
+                            </div>
+                            <!-- todo_back ===> check if it is lawyer ===> just for lawyer  -->
+                            {% if request.user.get_user_type_display == "lawyer" %}
+                            <div class="lawyer-show-add-section">
+                                <span>{# TODO check if will add Case Details #}
+                                    <img src="{% static 'images/eye.svg' %}" >
+                                    <span class="show-add-span">Преглед</span>
+                                </span>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <span class="{% if request.user.get_user_type_display == "lawyer" %}lawyer-{% endif %}case-date">{{ case.created_at }}</span>
+                    </div>
+                </div>
+            </div>
+{#            <div class="case-section bg-section-orange " onclick='location.href ="{%url "manager-case-details" %}"'>#}
+{##}
+{#                <div id="wrapper">#}
+{#                    <div class="parallelogram"></div>#}
+{#                    <div class="rectangle"></div>#}
+{#                </div>#}
+{#                <div class="case">#}
+{#                    <div class="case-content">#}
+{#                        <div class="case-title-status-content">#}
+{#                            <span class="case-title">#}
+{#                                M000511#}
+{#                            </span>#}
+{#                            <div>#}
+{#                                <div class="case-status">#}
+{#                                    <div class="circle"></div>#}
+{#                                    <span>Входирано</span>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <!-- todo_back ===> check if it is lawyer ===> just for lawyer  -->#}
+{#                            {% if "admin" == "admin" %}#}
+{#                            <div class="lawyer-show-add-section">#}
+{#                                <span>#}
+{#                                    <img src="{% static 'images/add.svg' %}">#}
+{#                                    <span class="show-add-span">Създай дело</span>#}
+{#                                </span>#}
+{#                            </div>#}
+{#                            {% endif %}#}
+{##}
+{#                        </div>#}
+{#                        #}
+{#                        <!-- todo_back ===> check if it is lawyer -->#}
+{#                        <!-- this span just for Lawyer  -->#}
+{#                        {% if "admin" == "admin" %}#}
+{#                        <span class="lawyer-case-date">21.06.2021</span>#}
+{#                        {% endif %}#}
+{##}
+{#                        <!-- this for all except the lawyer -->#}
+{#                        {% if "admin" == "lawyer" %}#}
+{#                        <span class="case-date">21.06.2021</span>#}
+{#                        {% endif %}#}
+{#                      #}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#            </div>#}
+{#            <div class="case-section bg-section-green " onclick='location.href ="{%url "case-summary" %}"'>#}
+{#                <div id="wrapper">#}
+{#                    <div class="parallelogram"></div>#}
+{#                    <div class="rectangle" ></div>#}
+{#                </div>#}
+{#                <div class="case">#}
+{#                    <div class="case-content">#}
+{#                        <div class="case-title-status-content">#}
+{#                            <span class="case-title">#}
+{#                                000511#}
+{#                            </span>#}
+{#                            <div>#}
+{#                                <div class="case-status"#}
+{#                                    >#}
+{#                                    <div class="circle" ></div>#}
+{#                                    <span>Активно</span>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{##}
+{#                        <span class="case-date">21.06.2021</span>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#            </div>#}
+        {% endfor %}
+        </div>
+    </div>
+    <div class="container mt-5">
+        <nav class="navigation-container" aria-label="Page navigation example">
+            <ul class="pagination justify-content-md-end">
+                {% if page_obj.has_previous %}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% for i in page_obj.paginator.page_range %}
+                    <li class="page-item {% if page_obj.number == i %}active{% endif %}"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        var url = location.protocol + '//' + location.host + location.pathname +'?';
+
+        document.getElementById('asc-dec').onchange = function() {
+            urlParams.delete('page');
+            urlParams.delete('sort');
+            urlParams.set('sort', this.value);
+            window.location.href = url + urlParams.toString();
+        }
+        document.getElementById('name-input').addEventListener("keyup", function(event) {
+            if (event.keyCode === 13 || this.value.length > 2) {
+                event.preventDefault();
+                urlParams.delete('page');
+                urlParams.delete('filter');
+                urlParams.set('filter',this.value)
+                window.location.href = url + urlParams.toString();
+            }
+        });
+        document.addEventListener('DOMContentLoaded', (event) => {
+            if(urlParams.has('filter')){
+                document.getElementById('name-input').value = urlParams.get('filter')
+                document.getElementById('name-input').className = document.getElementById('name-input').className + ' filled'
+            }
+            if(urlParams.has('sort')){
+                document.getElementById('asc-dec').className = document.getElementById('asc-dec').className + ' filled'
+                document.querySelector('#asc-dec [value="' + urlParams.get('sort') + '"]').selected = true;
+             }
+        });
+    </script>
+{% endblock %}

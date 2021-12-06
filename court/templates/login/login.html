@@ -1,0 +1,77 @@
+{% extends '../layouts/base.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% load static %}
+
+{% block styles %}
+<link href="{% static 'admin-account/css/login1.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<section class="page-content ">
+
+    <div class="login-panel text-center">
+        <h2>Вход в системата</h2>
+        {% if form.errors %}
+        
+            {% for field in form %}
+            {% for error in field.errors %}
+                <div class="alert alert-danger">
+                    <strong> {{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endfor %}    
+        {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong> {{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+        {% endif %}
+        <form action="{% url 'login' %}" method="POST" id="login-form">
+            {% csrf_token %}
+                <div class="form-input-container">
+            {{ form.username }}
+                <!-- <input type="email" name="email" class="form-input"
+                    required data-pristine-email-message="Моля, въведете имейл адрес"
+                    data-pristine-required-message="Това поле е задължително"> -->
+                <label for="email">Имейл</label>
+            </div>
+
+            <div class="form-input-container">
+                    {{ form.password }}
+
+                <!-- <input type="password" name="password" class="form-input" 
+                    required minlength="6"
+                    data-pristine-required-message="Това поле е задължително"
+                    data-pristine-minlength-message="паролата трябва да е повече от 6 знака"> -->
+                <label for="password">Парола</label>
+            </div>
+
+            <div class="login-extras">
+                <div class="checkbox-container">
+                    <!-- <input type="checkbox" id="remember-me"> -->
+                    {{ form.remember_me }}
+                    <span class="custom-checkbox"></span>
+                    <label for="remember-me">Запомни ме</label>
+                </div>
+                
+                <a href="" class="forgot-password">
+                    Забравена парола
+                </a>
+            </div>
+
+            <button type="submit" class="main-btn btn-blue">
+                ВХОД
+            </button>
+        </form>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'dependencies/Pristine/dist/pristine.min.js' %}"></script>
+<script src="{% static 'admin-account/js/login.js' %}"></script>
+{% endblock %}

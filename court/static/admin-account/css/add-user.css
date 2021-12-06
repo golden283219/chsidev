@@ -1,0 +1,120 @@
+.add-user-panel {
+    padding: 32px 16px 8px 16px;
+    background-color: var(--white-color);
+    box-shadow: 0px 3px 6px #0000001A;
+    border-radius: 4px;
+}
+.add-user-panel h2 {
+    font-size: 20px;
+    margin-bottom: 24px;
+    font-weight: normal;
+}
+.add-user-panel .form-input-container {
+    margin-bottom: 24px;
+}
+.email {
+    width: 485px;
+    max-width: 100%;
+}
+
+
+/* fix the arraw of the dropdown */
+select {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1;
+    border: 0;
+    border-radius: 5px;
+    height: 34px;
+    /* background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right #ddd; */
+    -webkit-appearance: none;
+    background-position-x: 244px;
+}
+.select-arraw{
+    width: 10px;
+    background-image: url("../../images/down-arrow.png");
+    height: 10px;
+    /* background-color: yellow; */
+    position: absolute;
+    left: 88%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: 23px;
+}
+
+
+.user-type-container{
+    width: 295px;
+}
+
+@media (min-width: 768px) {
+    .add-user-panel #user-type {
+        width: 295px;
+    }
+    
+    .btns-container {
+        margin-top: 56px;
+    }
+    .btns-container .btn-black-noborder {
+        margin-right: 72px;
+    }
+    
+    .names .col {
+        width: 233px;
+        min-width: 233px;
+        max-width: 233px;
+        padding-left: 0;
+        padding-right: 0;
+        margin-right: 20px;
+    }
+}
+@media (max-width:767px) {
+    .add-user-panel h2 {
+        font-size: 20px;
+    }
+    .btns-container {
+        margin-top: 36px;
+    }
+    .btns-container .btn-black-noborder {
+        /* margin-right: 44px;
+        margin-bottom: 22px; */
+    }
+    .page-title {
+        padding-top: 32px;
+        padding-bottom: 24px;
+        background-color: transparent;
+    }
+    .names .col {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        padding:0;
+    }
+    .btns-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .main-btn {
+        padding: 1em ;
+    }
+    .select-arraw{
+        left: 87%;
+    }
+    .user-type-container{
+        width: 100%;
+    }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+    .names .col {
+        width: calc(100% / 3 - 20px);
+        min-width: calc(100% / 3 - 20px);
+        max-width: calc(100% / 3 - 20px);
+        padding:0;
+    }
+}
+
+
+
+

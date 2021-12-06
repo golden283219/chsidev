@@ -1,0 +1,115 @@
+[
+    {
+      "model": "court.CustomUser",
+      "pk": 1,
+      "fields": {
+     "middle_name" : "test",
+        "first_name": "John",
+        "last_name": "Lennon",
+        "email" : "dummy_email1@court.court",
+        "password" : "pbkdf2_sha256$260000$qqAasR4aP58CRMpda1uKXG$xiiWIkIxDCQkB66yQIVfNZzE1SR+WYkvBuZAGLG4f/o=",
+        "user_type":1,
+        "username":"admin"
+
+      }
+    },
+    {
+        "model": "court.CustomUser",
+        "pk": 2,
+      "fields": {
+     "middle_name" : "test",
+        "first_name": "Paul",
+        "last_name": "McCartney",
+        "email" : "dummy_email2@court.court",
+        "password" : "pbkdf2_sha256$260000$qqAasR4aP58CRMpda1uKXG$xiiWIkIxDCQkB66yQIVfNZzE1SR+WYkvBuZAGLG4f/o=",
+        "user_type":2,
+        "username":"Paul"
+      }
+    },
+      {
+        "model": "court.CustomUser",
+        "pk": 3,
+        "fields": {
+     "middle_name" : "test",
+          "first_name": "McCartney",
+          "last_name": "Lennon",
+          "email" : "dummy_email3@court.court",
+          "password" : "pbkdf2_sha256$260000$qqAasR4aP58CRMpda1uKXG$xiiWIkIxDCQkB66yQIVfNZzE1SR+WYkvBuZAGLG4f/o=",
+          "user_type":3,
+          "username":"McCartney"
+
+  
+        }
+      },
+      {
+          "model": "court.CustomUser",
+          "pk": 4,
+        "fields": {
+     "middle_name" : "test",
+          "first_name": "John",
+          "last_name": "McCartney",
+          "email" : "dummy_email4@court.court",
+          "password" : "pbkdf2_sha256$260000$qqAasR4aP58CRMpda1uKXG$xiiWIkIxDCQkB66yQIVfNZzE1SR+WYkvBuZAGLG4f/o=",
+          "user_type":4,
+          "username":"John"
+
+        }
+    },
+    {
+        "model": "court.CustomUser",
+        "pk": 5,
+        "fields": {
+     "middle_name" : "test",
+          "first_name": "John",
+          "last_name": "Lennon",
+          "email" : "dummy_email5@court.court",
+          "password" : "pbkdf2_sha256$260000$qqAasR4aP58CRMpda1uKXG$xiiWIkIxDCQkB66yQIVfNZzE1SR+WYkvBuZAGLG4f/o=",
+          "user_type":1,
+          "username":"Lennon"
+
+        }
+      },
+      {
+          "model": "court.CustomUser",
+          "pk": 6,
+        "fields": {
+     "middle_name" : "test",
+          "first_name": "Michael",
+          "last_name": "McCartney",
+          "email" : "dummy_email6@court.court",
+          "password" : "pbkdf2_sha256$260000$qqAasR4aP58CRMpda1uKXG$xiiWIkIxDCQkB66yQIVfNZzE1SR+WYkvBuZAGLG4f/o=",
+          "user_type":2,
+          "username":"Michael2"
+
+        }
+      },
+        {
+          "model": "court.CustomUser",
+          "pk": 7,
+          "fields": {
+     "middle_name" : "test",
+            "first_name": "McCartney",
+            "last_name": "Lennon",
+            "email" : "dummy_email7@court.court",
+            "password" : "pbkdf2_sha256$260000$qqAasR4aP58CRMpda1uKXG$xiiWIkIxDCQkB66yQIVfNZzE1SR+WYkvBuZAGLG4f/o=",
+            "user_type":3,
+            "username":"McCartneyLennon"
+
+    
+          }
+        },
+        {
+            "model": "court.CustomUser",
+            "pk": 8,
+          "fields": {
+     "middle_name" : "test",
+            "first_name": "John",
+            "last_name": "Michael",
+            "email" : "dummy_email8@court.court",
+            "password" : "pbkdf2_sha256$260000$qqAasR4aP58CRMpda1uKXG$xiiWIkIxDCQkB66yQIVfNZzE1SR+WYkvBuZAGLG4f/o=",
+            "user_type":4,
+            "username":"JohnMichael"
+
+          }
+      }
+  ]

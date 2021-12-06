@@ -1,0 +1,102 @@
+{% extends '../layouts/base.html' %}
+
+{% block title %}
+Case details
+{% endblock %}
+
+{% load static %}
+
+{% block styles %}
+<link href="{% static 'admin-account/css/case-details.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<section class="page-content">
+    <div class="container">
+        <h1 class=" header page-title mb-0">
+            Създаване на дело: 00006
+        </h1>
+        <div class="row two-cols-occupied">
+            <div class="col-12 col-md-8">
+                <div class="page-section">
+                    {% include 'layouts/case-page-components/case-type-select.html' %}
+                </div>
+                <!-- drop down for case status -->
+                <div class="page-section create-case-step bg-white case-status-select">
+                    <div class="header-section">
+                        <h2 class="header-content mb-3">
+                            състояние на делото
+                        </h2>
+                    </div>
+                    <div class="form-input-container second-selector">
+                        <div class="select-arraw"></div>
+                        <input list="statuses" id="case-status" class="form-input" name="caseStatus" />
+                        <label for="case-status">Изберете състоянието на случая</label>
+                        
+                        <datalist id="statuses">
+                            <option value="option1">
+                            <option value="option2">
+                            <option value="option3">
+                            <option value="option4">
+                            <option value="option5">
+                            <option value="option6">
+                        </datalist>
+                    </div>
+                </div>
+                <div class="page-section">
+                    {% include 'layouts/case-page-components/case-parties-section.html' %}
+                </div>
+
+                <div class="page-section">
+                    {% include 'layouts/case-page-components/radio-btns-section.html' %}
+                </div>
+
+                <div class="page-section">
+                    {% include 'layouts/case-page-components/documents-section.html' %}
+                </div>
+
+                <div class="page-section create-case-step bg-white delivery-way-radio">
+                    <div class="header-section">
+                        <h2 class="header-content">
+                            Начин на доставка
+                        </h2>
+                    </div>
+                    <div class="radio-button-content">
+                        <label class="radio-container">Поща
+                            <input type="radio" name="delivery-way" checked>
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="radio-container">Призовкар
+                            <input type="radio" name="delivery-way">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="radio-container">Куриер
+                            <input type="radio" name="delivery-way">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class=" add-refuse-button-container mt-5">
+                    <button class="btn-black-noborder"onclick='location.href ="{%url "cases" %}"'>ОТКАЗ</button>
+                    <button class="main-btn btn-blue" onclick='location.href ="{%url "cases-list" %}"'>НАПРЕД</button>
+                </div>
+
+            </div>
+
+            <div class="col-md-4 case-history-container d-none d-md-block">
+                {% include 'layouts/case-page-components/case-history.html' %}
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'dependencies/Pristine/dist/pristine.min.js' %}"></script>
+<script src="{% static 'admin-account/js/case-details.js' %}" crossorigin="anonymous"></script>
+{% endblock %}

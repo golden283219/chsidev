@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+
+    <link href="{% static 'dependencies/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    {% block styles %}
+    {% endblock %}
+    <title>{% block title %} {% endblock %}</title>
+    <script src="https://kit.fontawesome.com/fb2f4a4fd9.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="container">
+            <a class="home-link" href="{%url 'cases'%}">
+                <i class="fas fa-home"></i>
+            </a>
+
+            <ul class="navbar-right-icons">
+                <li>
+                    <a href="{%url 'calendar'%}">
+                        <i class="far fa-calendar"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="{%url 'calendar'%}">
+                        <i class="fas fa-bell"></i>
+                    </a>
+                </li>
+                <li id="user-menu-toggler">
+                    <a href="">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul class="user-menu d-none" id="user-menu">
+                <li>Настройки</li>
+                <li>Изход</li>
+            </ul>
+        </nav>
+    </header>
+    {% block content %}
+    
+    {% endblock %}
+    <footer>
+        <i class="fas fa-gavel"></i>
+        ИМЕ НА СИСТЕМАТА
+    </footer>
+
+    <script src="{% static 'js/main.js' %}" crossorigin="anonymous"></script>
+    {% block scripts %}
+    {% endblock %}
+
+</body>
+
+</html>

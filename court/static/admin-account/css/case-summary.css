@@ -1,0 +1,135 @@
+.case-history {
+    margin-top: 118px;
+}
+.case-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+.case-info span {
+    width: 104px;
+    margin-right: 72px;
+}
+.case-info span:last-of-type {
+    margin-right: 0;
+    min-width: 152px;
+}
+.case-info.aip span:last-of-type {
+    min-width: 155px;
+}
+/* chart styling */
+.blue {
+    background-color: var(--input-blue-color);
+}
+.chart {
+    display: flex;
+    align-items: center;
+}
+.chart-container {
+    width: 208px;
+    height: 208px;
+    margin-right: 56px;
+    position: relative;
+}
+.chart-color-map span {
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-right: 7px;
+}
+.chart-total {
+    position: absolute;
+    position: absolute;
+    left: 61px;
+    display: inline-block;
+    text-align: center;
+    top: 83px;
+    max-width: 82px;
+}
+.chart-total .total {
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--input-blue-color);
+}
+.grey {
+    background-color: var(--main-color);
+}
+.orange {
+    background-color: #F05A0B;
+}
+/* start creditor list styling */
+.creditors-list .creditor {
+    display: flex;
+    justify-content: space-between;
+}
+.creditors-list .creditor:not(.list-header), .name {
+    padding: 17px 32px;
+    background-color: var(--very-light-color);
+
+}
+.creditors-list  .list-header {
+    padding: 8px 32px;
+}
+.creditor + .creditor, 
+.name + .name,
+.note + .note {
+    margin-top: 4px;
+}
+.creditor-name, .name {
+    font-weight: 500;
+    font-size: 20px;
+}
+/* end creditor list styling */
+
+/* START NOTES SECTION */
+.new-note h2 {
+    margin-top: 32px;
+    margin-bottom: 18px;
+}
+.new-note .btn-blue {
+    margin-top: 20px;
+    padding: 18px 64px;
+}
+.note {
+    padding: 18px 32px;
+    background-color: var(--very-light-color);
+    border-radius: 4px;
+}
+/* END NOTES SECTION */
+
+.ICAR_data {
+    color: var(--drop-down-color);
+    margin: 0;
+}
+@media(max-width: 767px) {
+    .header.page-title {
+        padding: 40px 0 32px 0;
+    }
+    .create-case-step {
+        padding: 32px 16px;
+    }
+    .case-info span:not(:last-of-type) {
+        margin-bottom: 16px;
+    } 
+    .chart {
+        display: block;
+        margin: auto;
+    }
+    .chart-container {
+        margin: auto;
+        margin-bottom: 32px;
+    }
+    .chart-color-map p:not(.chart-color-map p:last-of-type)  {
+        margin-bottom: 24px;
+    }
+    .creditors-list .creditor:not(.list-header), .name {
+        padding: 17px 16px;
+    }
+    
+}
+/* fix the header font-weight */
+.strong-span{
+    font-weight: 500;
+}
+
+

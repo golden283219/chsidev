@@ -1,0 +1,202 @@
+<!-- we open this page when the case status is active/ done -->
+
+{% extends '../layouts/base.html' %}
+
+{% block title %}
+Case details
+{% endblock %}
+
+{% load static %}
+
+{% block styles %}
+<link href="{% static 'admin-account/css/case-details.css' %}" rel="stylesheet">
+<link href="{% static 'admin-account/css/case-summary.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<section class="page-content">
+    <div class="container">
+
+        <div class="row two-cols-occupied">
+            <div class="col-12 col-md-8">
+                <h1 class=" header page-title mb-0">
+                    Дело 00006
+                    <div class="case-status float-end m-0">
+                        <div class="circle"></div>
+                        <span>Входирано</span>
+                    </div>
+                </h1>
+                <div class="page-section create-case-step bg-white">
+                    <div class="header-section">
+                        <h2 class="header-content mb-4">
+                            Характеристики на делото
+                        </h2>
+                    </div>
+                    <div class="case-info">
+                        <span>Дата: <span class="strong-span">21.07.2021</span></span>
+                        <span>Молба вх.: <br> <span class="strong-span">№ 003944</span> </span>
+                        <span>Отговорник: <br> <span class="strong-span">Николай Николов</span> </span>
+                    </div>
+                </div>
+                <div class="page-section">
+                    {% include 'layouts/case-page-components/radio-btns-section.html' %}
+                </div>
+
+                <div class="page-section create-case-step bg-white">
+                    <div class="header-section">
+                        <h2 class="header-content mb-4">
+                            Данни за дълга
+                        </h2>
+                    </div>
+                    <div class="chart">
+                        <div class="chart-container">
+                            <div class="chart-total">
+                                <span class="total">3000лв </span>
+
+                                Дълг
+                            </div>
+                            <canvas id="chart-canvas" height="208" width="208"></canvas>
+
+                        </div>
+                        <div class="chart-color-map">
+                            <p>
+                                <span class="color blue"></span>
+                                Платено: 2250лв
+                            </p>
+                            <p>
+                                <span class="color orange"></span>
+                                Остава: 750лв
+                            </p>
+                            <p>
+                                <span class="color grey"></span>
+                                Тип: Солидарен
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="page-section create-case-step bg-white">
+                    <div class="header-section">
+                        <h2 class="header-content mb-4">
+                            Присъединени взискатели
+                        </h2>
+                    </div>
+                    <div class="creditors-list">
+                        <div class="creditor list-header">
+                            <span>Взискатели</span>
+                            <span>Дълг</span>
+                        </div>
+                        <div class="creditor">
+                            <span class="creditor-name">НАП</span>
+                            <span>3200лв</span>
+                        </div>
+                        <div class="creditor">
+                            <span class="creditor-name">НАП</span>
+                            <span>3200лв</span>
+                        </div>
+                        <div class="creditor">
+                            <span class="creditor-name">НАП</span>
+                            <span>3200лв</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page-section create-case-step bg-white">
+                    <div class="header-section">
+                        <h2 class="header-content mb-4">
+                            ПДИ
+                        </h2>
+                    </div>
+                    <div class="case-info aip">
+                        <span>Дата: 
+                            <span class="strong-span">21.07.2021</span>
+                        </span>
+                        <span>Начин на връчване:
+                            <span class="strong-span">
+                                Начин
+                            </span> 
+                        </span>
+                    </div>
+                </div>
+
+                <div class="page-section">
+                    {% include 'layouts/case-page-components/case-parties-section.html' %}
+                </div>
+
+                <div class="page-section create-case-step bg-white">
+                    <div class="header-section">
+                        <h2 class="header-content mb-4">
+                            Справка ИКАР
+                        </h2>
+                    </div>
+                    <p class="ICAR_data">Данни от ИКАР</p>
+                </div>
+
+                <div class="page-section create-case-step bg-white">
+                    <div class="header-section">
+                        <h2 class="header-content mb-4">
+                            Изпълнителен титул
+                        </h2>
+                    </div>
+                    <div class="names">
+                        <div class="name">
+                            <span>Иван Иванов</span>
+                        </div>
+                        <div class="name">
+                            <span>Елица Асенова</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page-section create-case-step bg-white">
+                    <div class="header-section">
+                        <h2 class="header-content mb-4">
+                            Записки / Бележки
+                        </h2>
+                    </div>
+                    <div class="notes">
+                        <div class="note">
+                            Известен факт е, че читателя обръща внимание на съдържанието, което чете, а не на
+                            оформлението му. Свойството на Lorem Ipsum е, че до голяма степен има нормално разпределение
+                            на буквите и се чете по-лесно, за разлика от нормален текст на английски език като “Това е
+                            съдържание, това е съдържание”.
+                        </div>
+                        <div class="note">
+                            Известен факт е, че читателя обръща внимание на съдържанието, което чете, а не на оформлението му.
+                        </div>
+                    </div>
+                    <form action="" class="new-note">
+                        <h2>Добавяне на бележка</h2>
+                        <textarea class="form-input" cols="30" rows="4"></textarea>
+                        <button type="submit" class="main-btn btn-blue">
+                            ЗАПАЗИ БЕЛЕЖКАТА
+                        </button>
+                    </form>
+                </div>
+
+                <div class="page-section">
+                    {% include 'layouts/case-page-components/documents-section.html' %}
+                </div>
+
+
+                <div class=" add-refuse-button-container mt-5">
+                    <button class="btn-black-noborder"  onclick='location.href ="{%url "cases" %}"'>НАЗАД</button>
+                </div>
+
+            </div>
+
+            <div class="col-md-4 case-history-container d-none d-md-block">
+                {% include 'layouts/case-page-components/case-history.html' %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'dependencies/Pristine/dist/pristine.min.js' %}"></script>
+<script src="{% static 'admin-account/js/case-details.js' %}" crossorigin="anonymous"></script>
+<script src="{% static 'dependencies/chartJs/chart.min.js' %}"></script>
+<script src="{% static 'admin-account/js/case-summary.js' %}" crossorigin="anonymous"></script>
+{% endblock %}

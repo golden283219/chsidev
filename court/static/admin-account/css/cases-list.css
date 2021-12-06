@@ -1,0 +1,200 @@
+/* selection arraw  */
+.select-arraw {
+    width: 10px;
+    background-image: url("../../images/down-arrow.png");
+    height: 10px;
+    /* background-color: yellow; */
+    position: absolute;
+    left: 83%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: 23px;
+}
+
+select {
+    -webkit-appearance: none;
+}
+
+/* Accordion */
+/*  edit the accordion arraw */
+
+.accordion-button:not(.collapsed)::after{
+    background-image: url("../../images/expand-button.svg");
+}
+
+.accordion-button::after {
+    width: 17px;
+    height: 16px;
+    background-size: contain;
+    transform: rotate(0deg);
+    background-image: url("../../images/expand-button.svg");
+}
+/* End **** */
+
+.accordion-button:not(.collapsed){
+    background-color: var(--white-color);
+    box-shadow:  none;
+    border-bottom: 0px;
+    color: var(--main-color);
+}
+.accordion-button{
+    color: var(--main-color);
+    padding: 12px 24px;
+    -webkit-appearance: none !important;
+}
+.accordion-button.collapsed{
+    /* box-shadow: 0px 3px 6px #00000029; */
+}
+.court-type-selection .form-input{
+    width: 100%;
+}
+
+.accordion-body .btn-section{
+    width: calc( 100% / 5 );
+}
+.accordion-body .main-btn{
+    /* margin-left: 20px; */
+    padding: 1em 2em;
+    width: 100%;
+    height: 55px;
+}
+.accordion-body {
+    padding: 9px 24px 32px;
+}
+.accordion-body , .accordion-body .row{
+    margin: 0px;
+}
+.left-content{
+    font-size: 18px;
+}
+.accordion-item{
+    margin-bottom: 3px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 4px;
+    border: none;
+    color: var(--main-color);
+}
+.case-selectors{
+    display: flex;  
+    flex-wrap: wrap;
+    align-items: center;
+    /* width: 75%; */
+}
+.accordion-button ,.accordion-item:first-of-type{
+    border-radius: 4px;
+}
+.selectors{
+    width: 100%;
+    /* width: fit-content; */
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* accordion-header */
+.references-count{
+    position: absolute;
+    right: 83px;
+    top: 1em;
+    font-size: 15px;
+}
+.case-title{
+    margin-left: 16px;
+}
+.section-title{
+    margin-bottom: 29px;
+}
+
+/* alert message */
+.alert-primary{
+    min-height: 60px;
+    padding: 20px 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    width: 97%;
+    background-color: #EAF0FF;
+    color: #376DC2;
+    border: none;
+}
+.alert-primary .row{
+    width: 100%;
+}
+
+.delete-icon{
+    float: right;
+}
+.delete-icon img{
+    width: 18px;
+}
+
+
+@media only screen and (min-width: 769px) {
+    .selectors-seciton , .selectors-btn{
+        padding-left: 0px; 
+        /* padding-right: 0px; */
+    }
+
+}
+@media only screen and (max-width: 768px) {
+    .page-title{
+        display: none;
+    }
+    .section-title{
+        margin-top: 32px;
+        margin-bottom: 14px;
+    }
+    .accordion-body{
+        padding: 9px 3px 32px;
+    }
+    .accordion-body .main-btn{
+        margin-left: 0px;
+        max-width: 65%;
+        padding: 0.8em 1em;
+        width: 53%;
+
+    }
+    .alert-primary{
+        padding: 16px 3px;
+        width: 93%;
+    }
+    .alert-left-content{
+        flex-direction: column;
+    }
+
+
+    .last-section-button{
+        padding: 0.9em 1em;   
+    }
+    .selectors-seciton .form-input-container{
+        width: 100%;
+    }
+
+    .selectors-seciton {
+        padding-left: 0px; 
+        padding-right: 0px;
+    }
+    .middle-section{
+        margin-top: 16px;
+    }
+  .selectors-seciton .selection-input{
+    margin-bottom: 24px;
+  }
+    
+}
+@media only screen and (max-width: 756px) {
+    .page-content {
+        /* min-height: calc(100vh - 80px - 91px - 40px); */
+        /* padding-top: 88px; */
+        /* background-color: transparent; */
+    }
+}
+.accordion-item:first-of-type .accordion-button{
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.accordion-button{
+    background:var(--white-color);
+}

@@ -1,0 +1,92 @@
+[
+    {
+        "model": "court.case",
+      "pk": 1,
+      "fields": {
+        "created_at" : "2021-08-17 09:37:55.000000",
+        "type": 1,
+        "status": 1,
+        "delivery_method" : 1,
+        "User_id" :1
+         }
+    },
+    {
+        "model": "court.case",
+      "pk": 2,
+      "fields": {
+        "created_at" : "2021-08-17 09:37:55.000000",
+        "type": 1,
+        "status": 1,
+        "delivery_method" : 1,
+        "User_id" :2
+         }
+    
+    },
+    {
+        "model": "court.case",
+      "pk": 3,
+      "fields": {
+        "created_at" : "2021-08-17 09:37:55.000000",
+        "type": 1,
+        "status": 1,
+        "delivery_method" : 1,
+        "User_id" :3
+         }
+    
+    },    {
+        "model": "court.case",
+      "pk": 4,
+      "fields": {
+        "created_at" : "2021-08-17 09:37:55.000000",
+        "type": 1,
+        "status": 1,
+        "delivery_method" : 1,
+        "User_id" :4
+         }
+    
+    },    {
+        "model": "court.case",
+      "pk": 5,
+      "fields": {
+        "created_at" : "2021-08-17 09:37:55.000000",
+        "type": 1,
+        "status": 1,
+        "delivery_method" : 1,
+        "User_id" :1
+         }
+    
+    },    {
+        "model": "court.case",
+      "pk": 6,
+      "fields": {
+        "created_at" : "2021-08-17 09:37:55.000000",
+        "type": 1,
+        "status": 1,
+        "delivery_method" : 1,
+        "User_id" :3
+         }
+    
+    },    {
+        "model": "court.case",
+      "pk": 7,
+      "fields": {
+        "created_at" : "2021-08-17 09:37:55.000000",
+        "type": 1,
+        "status": 1,
+        "delivery_method" : 1,
+        "User_id" :2
+         }
+    
+    },    {
+        "model": "court.case",
+      "pk": 8,
+      "fields": {
+        "created_at" : "2021-08-17 09:37:55.000000",
+        "type": 1,
+        "status": 1,
+        "delivery_method" : 1,
+        "User_id" :1
+         }
+    
+    }
+  ]

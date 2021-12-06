@@ -1,0 +1,100 @@
+{% extends '../layouts/base.html' %}
+
+{% block title %}
+актуализира потребител 
+{% endblock %}
+
+{% load static %}
+
+{% block styles %}
+<link href="{% static 'admin-account/css/add-user.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<section class="page-content container">
+    <h1 class="page-title mb-0">
+        Създаване на потребител
+    </h1>
+    <div class="add-user-panel">
+        <h2>Информация за потребителя</h2>
+        {% if form.errors %}
+        
+        {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong> {{ error|escape }}</strong>
+            </div>
+            {% endfor %}
+        {% endfor %}    
+        {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong> {{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+        {% endif %}
+        <form action="{%url 'update-user' pk=user.pk %}" method="POST" id="new-user-form">
+            {% csrf_token %}
+            <div class="form-input-container">
+                {{ form.user_type }}
+
+                <!-- <input list="user-types" id="user-type"  name="user_type" class="form-input" required
+                    data-pristine-required-message="Моля, попълнете полето"/> -->
+                <label for="user-type">Тип на потребителя</label>
+                <!-- todo_back: add user-types dynamically in options instead of static ones -->
+                <!-- <datalist id="user-types">
+                    <option value="1">
+                    <option value="Supervisor">
+                    <option value="lawyer">
+                    <option value="Manager">
+                </datalist> -->
+            </div>
+            <div class="names row m-0">
+                <div class="col form-input-container">
+                    <!-- <input type="text" class="form-input" id="first-name" name="first_name" required
+                        data-pristine-required-message="Моля, попълнете полето"> -->
+                        {{form.first_name}}
+                        <label for="first-name">Име</label>
+                    
+                   
+
+                </div>
+                <div class="col form-input-container">
+                    <!-- <input type="text" class="form-input" id="middle-name" name="middle_name" required
+                        data-pristine-required-message="Моля, попълнете полето">
+                    <label for="middle-name">Презиме</label> -->
+                    {{form.middle_name}}
+                    <label for="middle-name">Презиме</label>
+                </div>
+                <div class="col form-input-container">
+                    <!-- <input type="text" class="form-input" id="last-name" name="last_name" required
+                        data-pristine-required-message="Моля, попълнете полето">
+                    <label for="last-name">Фамилия</label> -->
+                {{form.last_name}}
+                <label for="last-name">Фамилия</label> 
+
+                </div>
+            </div>
+            <div class="email form-input-container">
+                <!-- <input type="email" class="form-input" id="email" name="email" required
+                    required data-pristine-email-message="Моля, въведете имейл адрес"
+                    data-pristine-required-message="Моля, попълнете полето">
+                <label for="email">Имейл</label> -->
+                {{form.email}}
+                <label for="email">Имейл</label> 
+            </div>
+
+            
+        </form>
+    </div>
+    <div class="btns-container">
+        <button type="button" class="btn-black-noborder">ОТКАЗ</button>
+        <button class="main-btn btn-blue" type="submit" form="new-user-form">СЪЗДАЙ ПОТРЕБИТЕЛЯ</button>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'dependencies/Pristine/dist/pristine.min.js' %}"></script>
+<script src="{% static 'admin-account/js/new-user.js' %}"></script>
+{% endblock %}

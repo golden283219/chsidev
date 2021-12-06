@@ -1,0 +1,165 @@
+{% extends './layouts/base.html' %}
+
+{% block title %}
+Calendar
+{% endblock %}
+
+{% load static %}
+
+{% block styles %}
+<link href="{% static 'dependencies/bootstrap/css/mdb.min.css' %}" rel="stylesheet" />
+<link href="{% static 'css/calendar.css' %}" rel="stylesheet" />
+<link href="{% static 'dependencies/flatpickr/flatpickr.min.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<section class="page-content">
+    <div class="container calendar-container">
+        <div class="row align-items-center d-md-flex d-none">
+            <div class="col-sm-6 d-flex align-items-center mb-3">
+                <h1 class="m-0" id="monthAndYear"></h1>
+                <div class="calendar-nav d-flex align-items-center">
+                    <i id="previous" onclick="previous()" class="fas fa-chevron-left arrow"></i>
+                    <i class="fas fa-circle"></i>
+                    <i id="next" onclick="next()" class="fas fa-chevron-right arrow"></i>
+                </div>
+            </div>
+            <div class="col-sm-6 d-flex justify-content-sm-end">
+                <button class="add-task btn-blue mt-0" data-toggle="modal" data-target="#addTaskModal"
+                    onclick="document.getElementById('addTaskModal').classList.add('show'); document.getElementById('addTaskModal').style.display = 'block'">
+                    ДОБАВИ ЗАДАЧА
+                </button>
+            </div>
+        </div>
+        <div class="row d-md-none d-flex align-items-center">
+            <div class="col-4">
+                <div class="calendar-nav d-flex align-items-center m-0">
+                    <i id="previous" onclick="previous()" class="fas fa-chevron-left arrow"></i>
+                    <i class="fas fa-circle"></i>
+                    <i id="next" onclick="next()" class="fas fa-chevron-right arrow"></i>
+                </div>
+            </div>
+            <div class="col-8 text-end">
+                <button class="add-task btn-blue mt-0" data-toggle="modal" data-target="#addTaskModal"
+                    onclick="document.getElementById('addTaskModal').classList.add('show'); document.getElementById('addTaskModal').style.display = 'block'">
+                    ДОБАВИ ЗАДАЧА
+                </button>
+            </div>
+            <div class="col-12  mt-4">
+                <h1 class="m-0" id="monthAndYearMob"></h1>
+            </div>
+        </div>
+        <div class="title">
+            Тук са всички ваши планове и предстоящи <br />
+            задачи по делата
+        </div>
+
+        <div class="table-scrollable">
+            <table class="table table-responsive-sm" id="calendar">
+                <thead>
+                    <tr>
+                        <th>ПОНЕДЕЛНИК</th>
+                        <th>ВТОРНИК</th>
+                        <th>СРЯДА</th>
+                        <th>ЧЕТВЪРТЪК</th>
+                        <th>ЧЕТВЪРТЪК</th>
+                        <th>ЧЕТВЪРТЪК</th>
+                        <th>НЕДЕЛЯ</th>
+                    </tr>
+                </thead>
+
+                <tbody id="calendar-body"></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal fade" id="addTaskModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        Добавяне на задача
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
+                        <span aria-hidden="true">
+                            <img src="{% static 'images/close.svg' %}" alt="" class="src" style="width: 14px;">
+                        </span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" id="addTaskForm">
+                        <div class="row">
+
+                            <div class="col-lg-5 col-md-6">
+                                <div class="form-input-container">
+                                    <div class="select-arraw"></div>
+                                    <input class="form-input" list="cases" id="cases-input" required>
+                                    <label for="cases-input">случаи</label>
+                                    <datalist id="cases">
+                                        <option value="" selected hidden disabled></option>
+                                        <option value="option1"></option>
+                                        <option value="option1"></option>
+                                        <option value="option3"></option>
+                                    </datalist>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-6">
+                                <div class="form-input-container">
+                                    <div class="select-arraw"></div>
+                                    <select required id="menu" class="form-input">
+                                        <option value="" selected hidden disabled></option>
+                                        <option value="option1">option1</option>
+                                        <option value="option1">option2</option>
+                                        <option value="option3">option3</option>
+                                        <option value="option3">option4</option>
+                                        <option value="option3">option5</option>
+                                        <option value="option3">option6</option>
+                                        <option value="option3">option7</option>
+                                        <option value="option3">option8</option>
+                                        <option value="option3">option9</option>
+                                        <option value="option3">option10</option>
+                                    </select>
+                                    <label for="menu">Тип на задачата</label>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-4 col-lg-5 col-md-6 col-8">
+                                <div class="form-input-container date">
+                                    <input type="date" id="date" value="" required class="form-input">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <label for="date">Дата</label>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-5 col-md-6 col-8">
+                                <div class="form-input-container">
+                                    <div class="form-input time-range-container" id="time-range-container">
+
+                                        <input type="date" id="time1" required>
+                                        
+                                        <!-- <span>to</span> -->
+                                        <input type="date" id="time2" required>
+                                        <i class="far fa-clock"></i>
+                                        <label>Час</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <textarea name="" id="" class="form-input" required rows="6"
+                                    placeholder="Описание"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="main-btn btn-blue">ДОБАВИ ЗАДАЧАТА</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'dependencies/bootstrap/js/bootstrap.bundle.min.js' %}" crossorigin="anonymous"></script>
+<script src="{% static 'dependencies/bootstrap/js/mdb.min.js' %}" crossorigin="anonymous"></script>
+<script src="{% static 'dependencies/flatpickr/flatpickr.js' %}" crossorigin="anonymous"></script>
+<script src="{% static 'js/calender.js' %}" crossorigin="anonymous"></script>
+{% endblock %}

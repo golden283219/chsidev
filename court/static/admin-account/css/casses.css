@@ -1,0 +1,538 @@
+/* header on mobile */
+.mobile.btn-plus img{
+    width: 22px;
+}
+
+.asc-dec-filter.full-width .form-input{
+    min-width: 214px;
+}  
+.success-alert{
+    background-color: #BBF7D0;
+    height: 46px;
+    box-shadow: 0px 3px 6px #00000029;
+    color: #14532D;
+}
+.alert {
+    padding: 0.5rem 19px;
+}
+.alert-message{
+    margin: 0px;
+}
+
+/* ////////////////////////////////////////////////// */
+.case{
+    background-color: var(--white-color);
+}
+.case-status {
+    padding: 8px 0px;
+    max-width: 92%;
+}
+
+.parallelogram {
+    width: 116px;
+    /* background: var(--white-color); */
+    margin-left: -35px;
+}
+.rectangle {
+    width: 10px;
+    display: inline-block;
+    /* background: var(--light-yellow); */
+}
+.parallelogram , .rectangle {
+    height: 26px;
+    -webkit-transform: skew(42deg);
+}
+#wrapper{
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.header-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3em;
+    min-height: 122px;
+}
+.supervisor .case-content{
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+    padding-top: 27px;
+    justify-content: space-between;
+    min-height: 213px;
+}
+.circle{
+    height: 8px;
+    width: 8px;
+    /* background: var(--dark-yellow); */
+    border-radius: 50%;
+    margin-left: 14px;
+}
+
+/* .case-title-status-content{
+    min-height: 129px;
+} */
+.case-title{
+    font-size: 24px;
+}
+.supervisor .case-date{
+    color: var(--court-date-gray);
+    font-size: 12px;
+    margin-top: 61px;
+    padding-bottom: 16px;
+}
+.lawyer.case-date{
+    margin-top: 67px;
+}
+
+.search-content{
+    height: 56px;
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    width: 56%;
+    border-radius: 4px;
+    /* border: 1px solid #C9C9C9; */
+
+    /* justify-content: space-between; */
+}
+.search-content input[type="search"]{
+    width: 76%;
+    border: none;
+    margin-left: 10px;
+    color: var(--main-color);
+    background-color: transparent;
+}
+.search-content .fas{
+    color: var(--search-icon-color);
+    position: absolute;
+    top: 20px;
+}
+
+input:focus{
+    border: none;
+    outline: none;
+}
+.col-20{
+    width: 20%;
+}
+.case-section{
+    flex: 0 0 auto;
+    width: 20%;
+    margin-bottom: 24px;
+}
+
+.case , .parallelogram { 
+    box-shadow: 0px 6px 6px #0000001A;
+}
+.case{
+    border-radius: 4px;
+    border-top-left-radius: 0px;
+}
+/* select{
+        width: 93%;
+        margin-left: 1em;
+        border-color: var(--input-gray-color-border);
+} */
+.search-input-with-dropdown{
+    display: flex;width: 63%;
+}
+.right-btn .main-btn{
+    padding: 1em 3em;
+}
+@media only screen and (min-width : 600px ) {
+    .form-input-container.selection-input{
+        width: 38%;
+    }
+    .mobile{
+        display: none;
+    }
+    .desktop{
+        display: block;
+    }
+    .page-header .main-btn{
+        padding: 1em;
+    }
+    .main-btn{
+        padding: 1px 6px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .case-section{
+        flex: 0 0 auto;
+        width: 50%;
+    }
+    select{
+      width: 74%;
+    }
+    .search-input-with-dropdown{
+        width: 100%;
+    }
+    .search-content{
+    width: 22%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+   
+   
+    .mobile{
+        display: block;
+    }
+    .desktop{
+        display: none;
+    }
+    .form-input-container.selection-input{
+        width: 65%;
+    }
+    .header-content{
+        margin-top: 1px;
+        padding-top: 1.2em;
+        padding-bottom: 0.5em;
+        
+        border-top: 1px solid #E4E4E7;
+        box-shadow: 0px 3px 6px #0000001a;
+        background-color: var(--white-color);
+    }
+    header {
+    box-shadow: none;
+    display: flex;
+    align-items: flex-end;
+    height: 88px;
+    max-height: 103px;
+    padding: 0px 0;
+    }
+    header .container{
+    margin-top: 1em;
+    padding-bottom: 0.2em;
+   
+    }
+
+}
+@media only screen and (min-width: 600px) and (max-width : 998px){
+    .case-section{
+        flex: 0 0 auto;
+        width: 32%;
+    }
+    .case-status{
+        padding: 8px 0px;
+    }
+    .circle{
+        margin-left: 6px;
+    }
+}
+@media only screen and (min-width: 998px) and (max-width : 1200px) {
+    .case-section{
+        flex: 0 0 auto;
+        width: 25%;
+    }
+    .form-input-container.selection-input{
+        width: 28%;
+    }
+
+
+}
+@media only screen and (min-width: 1200px) {
+    .case-section{
+        flex: 0 0 auto;
+        width: 16.6666%;
+    }
+    .mobile{
+        display: none;
+    }
+    .desktop{
+        display: block;
+    }
+    .form-input-container.selection-input{
+        width: 28%;
+    }
+
+}
+
+
+
+
+
+/* select{
+    position: relative;
+/* } */
+select::after{
+    position: absolute;
+    right: 1em;
+} 
+
+.form-input-container.selection-input  label {
+    left: 32px;
+}
+#wrapper{
+    border-top-left-radius: 4px;
+}
+select {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1;
+    border: 0;
+    border-radius: 5px;
+    height: 34px;
+    /* background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right #ddd; */
+    -webkit-appearance: none;
+    background-position-x: 244px;
+}
+.select-arraw{
+    width: 10px;
+    background-image: url("../../images/down-arrow.png");
+    height: 10px;
+    /* background-color: yellow; */
+    position: absolute;
+    left: 86%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: 23px;
+}
+
+.btn-blue .btn-plus{
+    /* padding: 0.35em 1em; */
+    font-size: 25px;
+}
+
+
+
+
+
+.back-btn-container {
+    margin-top: 56px;
+}
+
+.edit-btn-container {
+    vertical-align: middle;
+}
+
+.edit-btn-container .btn-blue {
+    font-size: 14px;
+}
+
+.edit-btn-container .btn-blue i {
+    margin-right: 10px;
+}
+
+.filters {
+    display: flex;
+}
+
+.name-filter i {
+    color: var(--search-icon-color);
+    position: absolute;
+    top: 20px;
+}
+
+.name-filter input.filled~i {
+    display: none;
+}
+.page-header{
+    padding: 40px 0px;
+}
+
+
+.search-content input.filled {
+    width: 271px;
+}
+.search-content label{
+    display: none;
+}
+
+
+@media(min-width: 768px) {
+    :root {
+        --name-filter-width: 400px;
+        --name-filter-margin-right:20px;
+        --asc-dec-width: 190px;
+        --new-user-btn-container-width: 260px;
+    }
+    .asc-dec-filter {
+        width: var(--asc-dec-width);
+        margin-right: calc(100% - var(--asc-dec-width) - var(--name-filter-margin-right) - var(--name-filter-width) - var(--new-user-btn-container-width));
+    }
+    .edit-btn-container .btn-blue {
+        display: none;
+    }
+    .name-filter {
+        width: var(--name-filter-width);
+        margin-right: var(--name-filter-margin-right);
+        position: relative
+    }
+    .name-filter i {
+        left: 24px;
+    }
+    .name-filter input.filled {
+        padding-left: 24px;
+    }
+    .name-filter input.filled~label {
+        left: 24px;
+    }
+    .name-filter input {
+        padding-left: 52px;
+    }
+    .name-filter.form-input-container label {
+        left: 52px;
+    }
+    .new-user-container {
+        width: var(--new-user-btn-container-width);
+    }
+    .new-user-container button {
+        width: 100%;
+    }
+    .table-responsive .edit-btn-container {
+        padding: 3px 0;
+    }
+    .table-striped>tbody>tr:hover .btn-blue {
+        display: inline-block;
+    }
+    .table-responsive {
+        margin-top: 40px;
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 767px) {
+    .asc-dec-filter {
+        margin-right: 20px;
+    }
+    .asc-dec-filter .form-input {
+        width: 166px;
+        max-width: 100%;
+    }
+    .edit-btn-container .btn-blue {
+        padding: 1em;
+    }
+    .name-filter {
+        margin-right: 20px;
+    }
+    .name-filter i {
+        left: 29px;
+    }
+    .name-filter input {
+        padding: 17px 28px;
+        width: 73px;
+    }
+    .name-filter input.filled {
+        width: 271px;
+    }
+    .name-filter.form-input-container label {
+        display: none;
+    }
+    .new-user-container button {
+        padding: 10px 25px;
+    }
+    .new-user-container i {
+        transform: scale(-1, 1);
+    }
+    .table-responsive {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    .name-filter input::placeholder{
+        color: transparent;
+    }
+    .page-header{
+        position: fixed;
+        margin-top: 1px;
+        padding-top: 1.2em;
+        padding-bottom: 0.5em;
+        border-top: 1px solid #E4E4E7;
+        box-shadow: 0px 3px 6px #0000001a;
+        background-color: var(--white-color);
+        width: 100%;
+        z-index: 30;
+        top: 87.5px;
+    }
+    .supervisor .case-content{
+        margin-left: 16px;
+    }
+    .alert-message {
+        margin: 24px 0px;
+    }
+
+}
+@media (min-width: 768px) and (max-width: 992px) {
+    .asc-dec-filter {
+        margin-right: 20px;
+    }
+    .new-user-container button {
+        padding: 1em;
+    }
+    .name-filter {
+        margin-right: 20px;
+    }
+    .asc-dec-filter.full-width .form-input{
+        min-width:182px;
+    }
+    .page-header .main-btn{
+        padding: 1em 0.1em;
+    }
+
+
+}
+.lawyer-show-add-section img{
+    width: 22px;
+}
+.lawyer-show-add-section {
+    color: var(--input-blue-color);
+    margin-top: 24px;
+}
+.lawyer-case-date{
+    margin-top: 18px;
+    color: var(--court-date-gray);
+    font-size: 12px;
+    padding-bottom: 16px;
+}
+.show-add-span{
+    margin-left: 5px;
+}
+
+
+/* for orange case */
+.case-section.bg-section-orange .rectangle , .case-section.bg-section-orange .case-status{
+    background-color: var(--light-yellow);
+    color: var(--dark-yellow);
+} 
+.case-section.bg-section-orange .case-status .circle{
+    background-color: var(--dark-yellow);
+}
+
+/* for green case */
+.case-section.bg-section-green .rectangle , .case-section.bg-section-green .case-status{
+    background-color: var(--light-green);
+    color: var(--dark-green);
+} 
+.case-section.bg-section-green .case-status .circle{
+    background-color: var(--dark-green);
+}
+
+.case-section.bg-section-orange .parallelogram,
+.case-section.bg-section-green .parallelogram{
+    background-color: var(--white-color);
+}
+
+/* for the grey case */
+.case-section.bg-section-grey .rectangle , .case-section.bg-section-grey .case-status{
+    background-color: var(--white-color);
+    color: var(--main-color);
+} 
+.case-section.bg-section-grey .case-status .circle{
+    background-color: var(--main-color);
+}
+.case-section.bg-section-grey .parallelogram , .case-section.bg-section-grey .case {
+    background-color: var(--very-dark-gray );
+}
+
+
+.name-filter.form-input-container label {
+    left: 52px;
+    opacity: 0.5;
+}
+.name-filter .form-input.focus-visible~label{
+    opacity: 1;
+}
+

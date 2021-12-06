@@ -1,0 +1,594 @@
+{% load static %}
+<!-- to add creditors section  -->
+<div class=" bg-white  create-case-step add-creditors-section">
+    <div class="header-section">
+        <h2 class="header-content">
+            Страни по делото
+        </h2>
+    </div>
+    <div class="case-parties">
+        <div class="creditor-debtor-addition ">
+            <div id="wrapper">
+                <div class="parallelogram">
+                    <div class="add-creditor-step">
+                        <span>Взискатели</span>
+                    </div>
+                </div>
+                <!-- todo_back: remove this btn in case the user was a manager -->                
+                <button id="open-creditor-modal"
+                    onclick="openModals('creditor-Modal' , 'close2')"
+                    class="main-btn btn-transparent-noborder">
+                    <span>+</span> Добави взискател
+                </button>
+            </div>
+            <div class="in-addition-section">
+                <!-- todo_front check here if there are creditor ===> 
+                        if not don't put the container  , 
+                        if there is put the container section  ==> because the container has padding-->
+                <div class="container">
+                    <!-- the section which will be added after add deptor person -->
+                    <div class="row creditor-deptor-persons-content">
+                        <div class="col creditor-deptor-persons">
+                            <span class="person-name">Взискател</span>
+                            <span class="cursor-pointer" onclick="openModals('creditor-Modal' , 'close2')"><i class="fas fa-ellipsis-v"></i></span>
+                        </div>
+                    </div>
+                    <div class="row creditor-deptor-persons-content">
+                        <div class="col creditor-deptor-persons">
+                            <span class="person-name">Взискател</span>
+                            <span class="cursor-pointer" onclick="openModals('creditor-Modal' , 'close2')"><i class="fas fa-ellipsis-v"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- deptor section -->
+        <div class="creditor-debtor-addition deptor-addition">
+            <div id="wrapper">
+                <div class="parallelogram">
+                    <div class="add-creditor-step">
+                        <span>Длъжник</span>
+                    </div>
+                </div>
+                <button id="open-deptor-modal" onclick="openModals('deptor-Modal' , 'close')"
+                    class="main-btn btn-transparent-noborder cursor-pointer">
+                    <span>+</span> Добави длъжник
+                </button>
+            </div>
+            <div class="in-addition-section deptor-section">
+                <div class="container">
+                    <!-- the section which will be added after add deptor person -->
+                    <div class="row creditor-deptor-persons-content ">
+                        <div class="col creditor-deptor-persons">
+                            <span class="person-name">Взискател</span>
+                            <span class="cursor-pointer" onclick="openModals('deptor-Modal' , 'close')"><i class="fas fa-ellipsis-v"></i></span>
+                        </div>
+                    </div>
+                    <div class="row creditor-deptor-persons-content ">
+                        <div class="col creditor-deptor-persons">
+                            <span class="person-name">Взискател</span>
+                            <span class="cursor-pointer" onclick="openModals('deptor-Modal' , 'close')"><i class="fas fa-ellipsis-v"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- todo_back: remove this code til the end of this file in case the user was a manager -->  
+<!-- Add deptor Modal -->
+<div id="deptor-Modal" class="modal">
+    <div class="modal-content">
+
+        <div class="modal_header">
+            <span>Добавяне на длъжник</span>
+            <span class="close">
+                <img src="{% static 'images/close.svg' %}" alt="" class="src" style="    width: 15px;">
+            </span>
+        </div>
+        <div class="modal-body">
+            <div class="tabs-container">
+                <div id="wrapper_tabs">
+                    <div class="parallelogram pallagram_tabs">
+                        <div class="step-header">
+                            <span>Физическо лице</span>
+                        </div>
+                    </div>
+                    <div class="rectangle rectangle-tab">
+                        <div class="step-header">
+                            <span>Юридическо лице</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="first-tab-content">
+                <div class="form-content">
+                    <form action="" id="add-deptor-form_tab1" class="container">
+                        <div class="row mt-24">
+                            <div class="col-12 col-md-4 national_id">
+                                <div class="form-input-container">
+                                    <input type="text" name="pin" class="form-input" required id="pin-indv-dep"
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="pin-indv-dep">ЕГН</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row person-name-section">
+                            <div class="col-12 col-md-4">
+                                <div class="form-input-container">
+                                    <input type="text" name="firstName" id="first-name-indv-dep" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="first-name-indv-dep">Име</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 mt-s-24">
+                                <div class="form-input-container">
+                                    <input type="text" name="middleName" id="middle-name-indv-dep" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="middle-name-indv-dep">Презиме</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 mt-s-24">
+                                <div class="form-input-container">
+                                    <input type="text" name="surname" id="surname-indv-dep" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="surname-indv-dep">Фамилия</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row deptor-type">
+                            <div class="col">
+                                <div class="content-header">
+                                    <h2>Пол</h2>
+                                </div>
+                                <div class="radio-button-content type-deptor-radio">
+                                    <label class="radio-container">Жена
+                                        <input type="radio" name="gender-deptor-tab1">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="radio-container no-radio-button">Мъж
+                                        <input type="radio" name="gender-deptor-tab1" id="co-deptor">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <span class="gender-deptor-tab1-error">Това поле е задължително</span>
+                            </div>
+                        </div>
+                        <div class="row person-name-section">
+                            <div class="col-12 col-md-4">
+                                <div class="form-input-container">
+                                    <input type="text" name="citizenship" id="citizenship-indv-dep" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="citizenship-indv-dep">Гражданство</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 mt-s-24">
+                                <div class="form-input-container">
+                                    <input type="text" name="city" id="city-indv-dep" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="city-indv-dep">Град</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 mt-s-24">
+                                <div class="form-input-container">
+                                    <input type="text" name="area" id="area-indv-dep" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="area-indv-dep">Област</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-24 address-content">
+                            <div class="col">
+                                <div class="form-input-container">
+                                    <input type="text" name="idAddress" id="id-address-indv-dep" class="form-input national-id-address" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="id-address-indv-dep">Адрес по лична карта</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-24 address-content">
+                            <div class="col ">
+                                <div class="form-input-container">
+                                    <input type="text" name="address" id="address-indv-dep" class="form-input address" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="address-indv-dep">Адрес</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-24 optional-input-container">
+                            <div class="col-12 col-md-6 ">
+                                <div class="form-input-container">
+                                    <input type="phone" name="phone" id="phone-indv-dep" class="form-input">
+                                    <label for="phone-indv-dep">Телефон (по желание)</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 e-mail-input">
+                                <div class="form-input-container">
+                                    <input type="email" name="email" id="email-inde-dep" class="form-input">
+                                    <label for="email-inde-dep">Имейл (по желание)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row deptor-type ">
+                            <div class="col">
+                                <div class="content-header">
+                                    <h2>Тип длъжник</h2>
+                                </div>
+                                <div class="radio-button-content type-deptor-radio_tab1">
+                                    <label class="radio-container">Нов длъжник
+                                        <input type="radio" name="type-deptor">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="radio-container no-radio-button ">Съдлъжник
+                                        <input type="radio" name="type-deptor" id="parent-deptor">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <span id="error-radio-message">Това поле е задължително</span>
+                            </div>
+                        </div>
+                        <div class="row mt-24 deptor-attachment-parent">
+                            <div class="col">
+                                <div class="form-input-container selection-input  court-type-selection">
+                                    <div class="select-arraw"></div>
+                                    <select name="docType" id="doc-type-indv-dep" class="form-input select">
+                                        <option value="" class="d-none"></option>
+                                        <option value="Входирано">Изберете тип на документите</option>
+                                        <option value="Активно">Активно</option>
+                                        <option value="Приключено">Приключено</option>
+                                    </select>
+                                    <label for="doc-type-indv-dep">Прикачи към длъжник</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-24">
+                            <div class="col submit-btn">
+                                <button class="main-btn btn-blue submit-Btn">ДОБАВИ КАТО ДЛЪЖНИК</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="second-tab-content">
+                <div class="form-content">
+                    <form action="" id="add-deptor-form_tab2" class="container">
+                        <div class="row mt-24">
+                            <div class="col-12 col-md-4 national_id">
+                                <div class="form-input-container">
+                                    <input type="text" name="national_id" id="national-id-entity-dep" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="national-id-entity-dep">ЕИК</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-header">
+                            <h2 class="mb-0 mt-4">МОЛ</h2>
+                        </div>
+
+                        <div class="row person-name-section">
+                            <div class="col-12 col-md-4">
+                                <div class="form-input-container">
+                                    <input type="text" name="firstName" id="first-name-entity-dep" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="first-name-entity-dep">Име</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 mt-s-24">
+                                <div class="form-input-container">
+                                    <input type="text" name="middle-name" id="middle-name-entity-dep" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="middle-name-entity-dep">Презиме</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 mt-s-24">
+                                <div class="form-input-container">
+                                    <input type="text" name="surname" id="surname-entity-dep" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="surname-entity-dep">Фамилия</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row person-name-section">
+                            <div class="col-12 col-md-4 mt-s-24">
+                                <div class="form-input-container">
+                                    <input type="text" name="city" id="city-entity-dep" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="city-entity-dep">Град</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-24 address-content">
+                            <div class="col ">
+                                <div class="form-input-container">
+                                    <input type="text" name="address" id="address-entity-dep" class="form-input address" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="address-entity-dep">Адрес</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-24 optional-input-container">
+                            <div class="col-12 col-md-6 ">
+                                <div class="form-input-container">
+                                    <input type="text" name="phone" id="phone-entity-dep" class="form-input">
+                                    <label for="phone-entity-dep">Телефон (по желание)</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 e-mail-input">
+                                <div class="form-input-container">
+                                    <input type="email" name="email" id="email-entity-dep" class="form-input">
+                                    <label for="email-entity-dep">Имейл (по желание)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row deptor-type ">
+                            <div class="col">
+                                <div class="content-header">
+                                    <h2>Тип длъжник</h2>
+                                </div>
+                                <div class="radio-button-content type-deptor-radio2">
+                                    <label class="radio-container">Нов длъжник
+                                        <input type="radio" name="type-creditor2">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="radio-container no-radio-button">Съдлъжник
+                                        <input type="radio" name="type-creditor2" id="co-deptor2">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <span class="error_creditor_type_radio_tab">Това поле е задължително</span>
+                            </div>
+                        </div>
+                        <div class="row mt-24 deptor-attachment2">
+                            <div class="col">
+                                <div class="form-input-container selection-input  court-type-selection">
+                                    <div class="select-arraw"></div>
+                                    <select name="docType" id="doc-type-entity-dep" class="form-input select">
+                                        <option value="" class="d-none"></option>
+                                        <option value="Входирано">Изберете тип на документите</option>
+                                        <option value="Активно">Активно</option>
+                                        <option value="Приключено">Приключено</option>
+                                    </select>
+                                    <label for="doc-type-entity-dep">Прикачи към длъжник</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-24">
+                            <div class="col submit-btn">
+                                <button class="main-btn btn-blue submit-Btn">ДОБАВИ КАТО ДЛЪЖНИК</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Add creditor Modal -->
+<div id="creditor-Modal" class="modal">
+    <div class="modal-content">
+        <div class="modal_header">
+            <span>Добавяне на длъжник </span>
+            <span class="close2 cursor-pointer">
+                <img src="{% static 'images/close.svg' %}" alt="" class="src" style="    width: 15px;">
+            </span>
+        </div>
+        <div class="modal-body">
+            <div class="tabs-container">
+                <div id="wrapper_tabs">
+                    <div class="parallelogram pallagram_tabs">
+                        <div class="step-header">
+                            <span>Физическо лице</span>
+                        </div>
+                    </div>
+                    <div class="rectangle rectangle-tab">
+                        <div class="step-header">
+                            <span>Юридическо лице</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="first-tab-content">
+                <div class="form-content">
+                    <form action="" id="add-creditor-form_tab1" class="container">
+                        <div class="row mt-24">
+                            <div class="col-12 col-md-4 national_id">
+                                <div class="form-input-container">
+                                    <input type="text" name="pin" class="form-input" id="pin-indv-cred" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="pin-indv-cred">ЕГН</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row person-name-section">
+                            <div class="col-12 col-md-4">
+                                <div class="form-input-container">
+                                    <input type="text" name="firstName" id="first-name-indv-cred" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="first-name-indv-cred">Име</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 mt-s-24">
+                                <div class="form-input-container">
+                                    <input type="text" name="middleName" id="middle-name-indv-cred" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="middle-name-indv-cred">Презиме</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 mt-s-24">
+                                <div class="form-input-container">
+                                    <input type="text" name="surname" id="surname-indv-cred" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="surname-indv-cred">Фамилия</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row deptor-type">
+                            <div class="col">
+                                <div class="content-header">
+                                    <h2>Пол</h2>
+                                </div>
+                                <div class="radio-button-content type-deptor-radio">
+                                    <label class="radio-container">Жена
+                                        <input type="radio" name="gender-creditor-tab1">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="radio-container no-radio-button">Мъж
+                                        <input type="radio" name="gender-creditor-tab1" id="co-deptor">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <span class="gender-creditor-tab1-error">Това поле е задължително</span>
+                            </div>
+                        </div>
+                        <div class="row person-name-section">
+                            <div class="col-12 col-md-4">
+                                <div class="form-input-container">
+                                    <input type="text" name="citizenship" id="citizenship-indv-cred" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="citizenship-indv-cred">Гражданство</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 mt-s-24">
+                                <div class="form-input-container">
+                                    <input type="text" name="city" id="city-indv-cred" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="city-indv-cred">Град</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 mt-s-24">
+                                <div class="form-input-container">
+                                    <input type="text" name="area" id="area-indv-cred" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="area-indv-cred">Област</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-24 address-content">
+                            <div class="col">
+                                <div class="form-input-container">
+                                    <input type="text" name="IDCardAddress" id="id-address-indv-cred" class="form-input national-id-address"
+                                        required data-pristine-required-message="Това поле е задължително">
+                                    <label for="id-address-indv-cred">Адрес по лична карта</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-24 address-content">
+                            <div class="col ">
+                                <div class="form-input-container">
+                                    <input type="text" name="address" id="address-indv-cred" class="form-input address" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="address-indv-cred">Адрес</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-24 optional-input-container">
+                            <div class="col-12 col-md-6 ">
+                                <div class="form-input-container">
+                                    <input type="phone" id="phone-indv-cred" name="phone" class="form-input">
+                                    <label for="phone-indv-cred">Телефон (по желание)</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 e-mail-input">
+                                <div class="form-input-container">
+                                    <input type="email" name="email" id="email-indv-cred" class="form-input">
+                                    <label for="email-indv-cred">Имейл (по желание)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-24">
+                            <div class="col submit-btn">
+                                <button class="main-btn btn-blue">ДОБАВИ КАТО ВЗИСКАТЕЛ</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="second-tab-content">
+                <div class="form-content">
+                    <form action="" id="add-creditor-form_tab2" class="container">
+                        <div class="row mt-24">
+                            <div class="col-12 col-md-4 national_id">
+                                <div class="form-input-container">
+                                    <input type="text" name="national_id" id="national-id-entity-cred" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="national-id-entity-cred">ЕИК</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-header">
+                            <h2 class="mb-0 mt-4">МОЛ</h2>
+                        </div>
+
+                        <div class="row person-name-section">
+                            <div class="col-12 col-md-4">
+                                <div class="form-input-container">
+                                    <input type="text" name="firstName" id="first-name-entity-cred" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="first-name-entity-cred">Име</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 mt-s-24">
+                                <div class="form-input-container">
+                                    <input type="text" name="middleName" id="middle-name-entity-cred" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="middle-name-entity-cred">Презиме</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 mt-s-24">
+                                <div class="form-input-container">
+                                    <input type="text" name="surname" id="surname-entity-cred" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="surname-entity-cred">Фамилия</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row person-name-section">
+                            <div class="col-12 col-md-4 mt-s-24">
+                                <div class="form-input-container">
+                                    <input type="text" name="city" id="city-entity-cred" class="form-input" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="city-entity-cred">Град</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-24 address-content">
+                            <div class="col ">
+                                <div class="form-input-container">
+                                    <input type="text" name="address" id="address-entity-cred" class="form-input address" required
+                                        data-pristine-required-message="Това поле е задължително">
+                                    <label for="address-entity-cred">Адрес</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-24 optional-input-container">
+                            <div class="col-12 col-md-6 ">
+                                <div class="form-input-container">
+                                    <input type="text" name="phone" id="phone-entity-cred" class="form-input">
+                                    <label for="phone-entity-cred">Телефон (по желание)</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 e-mail-input">
+                                <div class="form-input-container">
+                                    <input type="email" name="email" id="email-entity-cred" class="form-input">
+                                    <label for="email-entity-cred">Имейл (по желание)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-24">
+                            <div class="col submit-btn">
+                                <button class="main-btn btn-blue">ДОБАВИ КАТО ВЗИСКАТЕЛ</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

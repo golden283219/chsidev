@@ -1,0 +1,86 @@
+{% load static %}
+<!-- the documents section -->
+<div class=" bg-white create-case-step documents-collection-container">
+
+    <!-- todo_back: remove this div in case the user was a manager or a lawyer -->
+    <div>
+        <div class="header-section">
+            <h2 class="header-content">
+                Качване на документи
+            </h2>
+        </div>
+        <div class="upload-document-container">
+            <div class="form-input-container selection-input  court-type-selection">
+                <div class="select-arraw"></div>
+                <select name="docType" id="doc-type" class="form-input select">
+                    <option value="" class="d-none"></option>
+                    <option value="Входирано">Изберете тип на документите</option>
+                    <option value="Активно">Активно</option>
+                    <option value="Приключено">Приключено</option>
+                </select>
+                <label for="doc-type">Изберете тип на документите</label>
+            </div>
+            <button class="main-btn btn-transparent">
+                <span>
+                    <img src="{% static 'images/upload-button.svg' %}">
+                </span>
+                Избиране на документи
+            </button>
+
+        </div>
+    </div>
+    <!-- todo_back: add class 'mt-0' when the user is a manager or lawyer -->
+    <div class="header-section all-docs">
+        <h2 class="header-content d-flex justify-content-between align-items-center">
+            <span>Документи</span>
+            <!-- todo_back: view this span only if the user is a lawyer -->
+            <span>
+                <button class="main-btn btn-transparent-noborder ">
+                    <img class="printer-icon" src="{% static 'images/printing.svg' %}" alt="printer icon">
+                    Всички
+                </button>
+            </span>
+        </h2>
+    </div>
+    <div class="documents-collection">
+        <div class="document-row">
+            <div class="d-flex align-items-center">
+                <span class="doc-icon">
+                    <img src="{% static 'images/file.svg' %}" alt="" class="src">
+                </span>
+                <div class="document-name-container doc-name">
+                    Прегледан Входящ документ
+                </div>
+            </div>
+            <span>
+                <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+            </span>
+        </div>
+        <div class="document-row">
+            <div class="d-flex align-items-center">
+                <span class="doc-icon">
+                    <img src="{% static 'images/file2.svg' %}" alt="" class="src">
+                </span>
+                <div class="document-name-container doc-name">
+                    Непрегледан Входящ документ
+                </div>
+            </div>
+            <span>
+                <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+            </span>
+        </div>
+        <div class="document-row">
+            <div class="d-flex align-items-center">
+                <span class="doc-icon">
+                    <img src="{% static 'images/file2.svg' %}" alt="" class="src">
+                </span>
+                <div class="document-name-container doc-name">
+                    Прегледан Входящ документ
+                </div>
+            </div>
+            <span>
+                <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+            </span>
+        </div>
+    </div>
+</div>

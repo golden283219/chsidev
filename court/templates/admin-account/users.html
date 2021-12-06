@@ -1,0 +1,187 @@
+{% extends '../layouts/base.html' %}
+
+{% block title %}
+потребители
+{% endblock %}
+
+{% load static %}
+
+{% block styles %}
+<link href="{% static 'admin-account/css/users.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1 class="page-title">Потребители</h1>
+        <div class="filters">
+            <div class="name-filter form-input-container">
+                <!-- TODO: WHILE SEARCHING ADD THIS PLACEHOLDER IN THE INPUT (Търсене…) -->
+                <input class="form-input" type="text" id="name-input">
+                <label for="name-input">Търсене по номер на дело</label>
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="asc-dec-filter form-input-container">
+                <div class="select-arraw"></div>
+                <select class="form-input" id="asc-dec">
+                    <!-- <option selected disabled hidden>Сортирай по</option> -->
+                    <option selected disabled hidden value=""></option>
+                    <option value="ascending">Всички</option>
+                    <option value="ascending">възходящ</option>
+                    <option value="descending">низходящ</option>
+                </select>
+                <label for="asc-dec">Сортирай по</label>
+            </div>
+            <div class="new-user-container">
+                <button type="button"   onclick='location.href ="{%url "add-user" %}"'class="main-btn btn-blue">
+                    <i class="fas fa-user-plus d-md-none"></i>
+                    <span class="d-none d-md-inline">СЪЗДАЙ ПОТРЕБИТЕЛ</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="page-content container">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Име</th>
+                    <th scope="col">Активни дела</th>
+                    <th scope="col">Достъп до системата</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- todo_back: repeat every tr with every user, and remove dummy data -->
+                    {% for user in users %}
+                    <td>{{user}}</td>
+                    <td>{{user.case_count}}</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox"  {% if user.is_active%} checked {%endif%} onclick="changeStatus('{{user.pk}}')">
+                            <span class="slider round"\></span>
+                        </label>
+                    </td>
+                    <td class="edit-btn-container">
+                        <button onclick='location.href ="{%url "update-user" pk=user.pk %}"' class="main-btn btn-blue">
+                            <i class="fas fa-pen"></i>
+                            РЕДАКТИРАНЕ
+                        </button>
+                    </td>
+                </tr>
+             {%endfor%}
+            </tbody>
+          
+            </tbody>
+        </table>
+    </div>
+  
+                <nav class="navigation-container" aria-label="Page navigation example">
+                    {% if is_paginated %}
+                    <ul class="pagination justify-content-md-end">
+                        {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{page_obj.previous_page_number}}" aria-label="Previous">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                        </li>
+                        {%endif%}
+
+                        <!-- todo_back: repeat every page item with a page -->
+                        <!-- TODO: add active class dynamically depending on the page queryparam in url  -->
+                        {% for i in paginator.page_range %} 
+                            {% if page_obj.number ==   i %}
+                        <li class="page-item active"><a class="page-link active" href="?page={{ i }}">{{i}}</a></li>
+                            {%else%}
+                            <li class="page-item "><a class="page-link" href="?page={{ i }}">{{i}}</a></li>
+                            {% endif %}
+                        {% endfor %} 
+                        
+                        {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{page_obj.next_page_number}}" aria-label="Next">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        {% else %}
+
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        {% endif %}
+
+                    </ul>
+                    {% endif %}
+                </nav>
+
+    <div class="back-btn-container">
+        <button class="btn-black-noborder">
+            НАЗАД
+        </button>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+{% csrf_token %}
+
+<script type="text/javascript">
+
+  const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;  
+  function changeStatus(id){
+
+    
+        data = JSON.stringify({user: id,}) 
+        var request = new XMLHttpRequest();
+        request.open('POST', "{% url 'update_status' %}", true);
+        request.setRequestHeader('X-CSRFToken', csrftoken,'Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        request.send(data);
+
+    }
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+
+    document.getElementById('asc-dec').onchange = function(){
+                urlParams.delete('page');
+                urlParams.delete('sort');
+                urlParams.set('sort',this.value)
+
+                console.log(urlParams.toString())
+                window.location.href = location.protocol + '//' + location.host + location.pathname +'?' +urlParams.toString();
+            };
+
+
+        document.getElementById('name-input').addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+                urlParams.delete('page');
+                urlParams.delete('filter');
+
+                urlParams.set('filter',this.value)
+                console.log(urlParams.toString())
+                window.location.href = location.protocol + '//' + location.host + location.pathname +'?' +urlParams.toString();        }
+        }); 
+        document.addEventListener('DOMContentLoaded', (event) => {
+            if(urlParams.has('filter')){
+                document.getElementById('name-input').value = urlParams.get('filter')
+                document.getElementById('name-input').className = document.getElementById('name-input').className + ' filled'
+            }
+
+            if(urlParams.has('sort')){
+                document.getElementById('asc-dec').className = document.getElementById('asc-dec').className + ' filled'
+
+                document.querySelector('#asc-dec [value="' + urlParams.get('sort') + '"]').selected = true;
+             }
+        });
+    </script>
+{% endblock %}

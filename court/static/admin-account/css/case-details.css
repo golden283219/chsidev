@@ -1,0 +1,818 @@
+.header-section-content {
+    font-size: 20px;
+}
+
+button.main-btn:not(.btn-blue){
+    font-weight: normal;
+}
+
+.create-case-step {
+    padding: 2em;
+}
+
+.page-section {
+    margin-bottom: 8px;
+}
+
+.main-btn {
+    padding: 0.9em 2em;
+}
+h2{
+    font-weight: normal;
+    color: var(--main-color);
+    font-size: 20px;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+
+/*  for the selection button arraw  */
+
+.select-arraw {
+    width: 10px;
+    background-image: url("../../images/down-arrow.png");
+    height: 10px;
+    /* background-color: yellow; */
+    position: absolute;
+    left: 45%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: 23px;
+}
+
+select {
+    -webkit-appearance: none;
+}
+.disktop{
+    display: block;
+}
+
+
+/* for court type selection section  */
+
+.court-type-selection .form-input, .case-status-select .form-input {
+    width: 50%;
+}
+
+.create-case-step {
+    box-shadow: 0px 3px 6px #0000001A;
+    border-radius: 4px;
+    margin-top: 8px;
+}
+.create-case-step:first-of-type {
+    margin-top: 0;
+}
+.case-type-step {
+    min-height: 162px;
+}
+.case-type-step .form-input-container {
+    margin-top: 18px;
+}
+
+/* for create creditor selection  section */
+
+.parallelogram {
+    width: 155px;
+    background: var(--light-gray);
+    margin-left: -35px;
+    height: 24px;
+    -webkit-transform: skew(34deg);
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#wrapper , #wrapper_tabs{
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    border-top-left-radius: 4px ;
+    
+}
+#wrapper{
+    justify-content: space-between;
+}
+
+.in-addition-section {
+    background: var(--light-gray);
+    min-height: 5px;
+    border-radius: 0px 4px 4px 4px;
+}
+
+.in-addition-section .container{
+    padding: 24px;
+}
+
+.add-creditor-step {
+    -webkit-transform: skew( -34deg);
+    margin-left: 24px
+}
+
+.add-creditors-section {
+    min-height: 287px;
+}
+
+.creditor-deptor-persons {
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 0.4em 2em; */
+    min-height: 60px;
+    /* padding: 0px 1.8em; */
+    box-shadow: 0px 3px 6px #0000001a;
+    border-radius: 4px;
+    margin-top: 0.3em;
+}
+
+
+.in-addition-section .creditor-deptor-persons-content:first-child .creditor-deptor-persons {
+    margin-top: 0em;
+}
+
+.person-name {
+    font-size: 16px;
+}
+
+.btn-transparent-noborder.main-btn {
+    padding: 0em 1em;
+    font-weight: normal;
+}
+
+.main-btn.btn-transparent-noborder span {
+    font-size: 23px;
+    font-weight: normal;
+    margin-right: 0.1em;
+}
+
+.deptor-addition {
+    margin-top: 61px;
+}
+
+.case-parties {
+    margin-top: 25px;
+}
+
+.deptor-addition{
+    margin-top: 61px;
+}
+.case-parties{
+    margin-top: 25px;
+}
+.row .deptor-section .creditor-deptor-persons-content:not(:first-child) {
+    width: 95%;
+    margin-right: 0px;
+    margin-left: 5.2%;
+}
+
+/* /////////////////////////////end style for case parties creation////////////////////////////////// */
+
+.radio-button-content {
+    display: flex;
+    margin-top: 27px;
+}
+
+.no-radio-button {
+    margin-left: 2em;
+}
+
+.radio-button-section {
+    min-height: 138px;
+}
+
+/* ////////////////////End section of radio buttons///////////////////////  */
+
+/* for the section which be viewed after click on He radio button */
+
+.document-options-section {
+    min-height: 365px;
+    /* display: none; */
+}
+
+/* Edit the bootstrap checkbox  */
+
+.form-check-input:checked[type=checkbox] {
+    background-image: url("../../images/check3.svg");
+}
+
+.form-check-input[type=checkbox] {
+    border-radius: 0.15em;
+    border: 2px solid var(--dark-gray);
+}
+
+.form-check-input[type=checkbox]:checked {
+    border: 1px solid var(--input-blue-color);
+}
+
+.form-check-input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.form-check-input:focus {
+    box-shadow: none;
+}
+
+.form-check-label {
+    margin-left: 8px;
+    color: var(--main-color);
+    font-size: 18px;
+}
+.document-options-content{
+    padding-bottom: 35px;
+}
+
+.document-options-section .col {
+    padding-bottom: 1em;
+}
+
+/* upload documents section */
+
+.upload-document-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 24px;
+}
+
+.upload-document-container .form-input-container{
+    max-width: 45%;
+    width: 40%;
+}
+
+.upload-document-container .court-type-selection .form-input {
+    width: 100%;
+}
+
+.upload-document-container .form-input-container .select-arraw {
+    left: 87%;
+}
+.upload-document-container .main-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.upload-document-container .main-btn img{
+    width: 17px;
+    margin-right: 0.5em;
+    margin-bottom: 0.2em;
+}
+
+
+.upload-document-container .main-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-document-container .main-btn img {
+    width: 17px;
+    margin-right: 0.5em;
+    margin-bottom: 0.2em;
+}
+
+/*  for document collection section  */
+
+.document-row {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    background: var(--very-light-color);
+    min-height: 60px;
+    align-items: center;
+    padding: 0px 2em;
+    border-radius: 4px;
+}
+
+.doc-icon img {
+    width: 22px;
+}
+
+.doc-name {
+    margin-left: 8px;
+}
+.doc-name:hover {
+    text-decoration: underline;
+}
+.documents-collection {
+    margin-top: 24px;
+}
+.documents-collection-container {
+    /* min-height: 418px; */
+    padding: 2em 2em 3em;
+}
+.all-docs{
+    margin-top: 32px;
+}
+
+.all-docs {
+    margin-top: 32px;
+}
+/* for the delivery-way-radio btns */
+.delivery-way-radio .radio-container {
+    margin-right: 50px;
+}
+.delivery-way-radio .radio-button-content {
+    flex-wrap: wrap;
+}
+/*  */
+
+.add-refuse-button-container {
+    display: flex;
+}
+
+.add-refuse-button-container button.btn-transparent-noborder.main-btn {
+    padding: 0.3em 0em;
+    color: var(--main-color);
+    font-weight: normal;
+}
+
+.add-refuse-button-container .btn-blue {
+    margin-left: 72px;
+}
+
+.add-refuse-button-container .col {
+    padding-left: 0px;
+}
+/* START CASE HISTORY SECTION */
+.case-history-container {
+    padding-left: 8px;
+    padding-right: 0;
+}
+.case-history {
+    padding: 32px 32px 27px 32px;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 4px;
+    position: sticky;
+    top: 50px;
+}
+.case-history h6 {
+    color: var(--drop-down-color);
+    font-weight: normal;
+    margin-bottom: 22px;
+}
+.data {
+    font-weight: 500;
+}
+.date {
+    font-size: 12px;
+    font-weight: 500;
+}
+.history-event {
+    display: grid;
+    grid-template-columns: 5px 1fr 65px;
+    border-left: 1px dashed #E4E4E7;
+    padding-bottom: 23px;
+    column-gap: 20px;
+}
+.history-event:last-of-type {
+    border: 0;
+}
+.history-event i {
+    font-size: 10px;
+    position: relative;
+    top: -3px;
+    left: -5px;
+}
+.history-event div {
+    position: relative;
+    top: -5px;
+}
+/* END CASE HISTORY SECTION */
+.printer-icon {
+    width: 20px;
+    height: 18px;
+    margin-right: 10px;
+}
+@media only screen and (min-width: 768px) and (max-width : 1200px) {
+    .two-cols-occupied .upload-document-container .form-input-container {
+        margin-right: 20px;
+    }
+    .two-cols-occupied .upload-document-container .main-btn {
+        font-size: 12px;
+    }
+    .case-status-select .form-input-container {
+        width: 80%;
+    }
+    .case-status-select .form-input {
+        width: 100%;
+    }
+    .second-selector .select-arraw{
+        left: 94%;
+    }
+}
+/* for the tablet */
+
+
+.mt-s-24{
+    margin-top: 0px;
+}
+
+/* for the tablet */
+@media only screen and (min-width: 768px) and (max-width : 1024px) {
+    .creditor-debtor-addition .main-btn{
+        padding:1em;
+    }
+    .upload-document-container .form-input-container{
+        min-width: 52%;
+    }
+    .upload-document-container .form-input-container .select-arraw{
+        left: 91%;
+    }
+    .court-type-selection .form-input, .case-status-select .form-input{
+        width: 100%;
+    }
+    .court-type-selection .select-arraw{
+        left: 92%;
+    }
+    .radio-container .checkmark:after{
+        left: 19% ;
+    }
+    .document-row{
+        padding: 0px 1em;
+    }
+    .upload-document-container .court-type-selection .form-input{
+        width: 100%;
+    }
+    .form-input-container{
+        width: 60%;
+    }
+    .upload-document-container .main-btn {
+        padding: 1em 0.5em;
+    }
+    .row .deptor-section .creditor-deptor-persons-content:not(:first-child) {
+        margin-left: 4.%;
+    }
+    .mt-s-24{
+        margin-top: 0px;
+    }
+}
+
+/* For Mobile */
+@media only screen and (max-width: 767px)  {
+    .create-case-step {
+        padding: 1em;
+    }
+    .upload-document-container .form-input-container{
+        min-width: 100%;
+    }
+    .upload-document-container .form-input-container .select-arraw{
+        left: 90%;
+    }
+    .court-type-selection .form-input, .case-status-select .form-input {
+        width: 100%;
+    }
+    .court-type-selection .select-arraw {
+        left: 90%;
+    }
+    .radio-container .checkmark:after {
+        left: 19%;
+    }
+    .upload-document-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .documents-collection-container {
+        padding: 32px 16px;
+    }
+    .upload-document-container .main-btn {
+        width: 100%;
+        margin-top: 24px;
+        padding: 0.9em 0.4em;
+
+    } 
+    .document-row{
+        padding: 0px 1em;
+    }
+    .add-refuse-button-container .btn-blue {
+        margin-left: 32px;
+    }
+
+    
+    .in-addition-section {
+        background-color: var(--white-color);
+    }
+    .creditor-deptor-persons{
+        background-color: var(--tiny-dark-gray);
+    }
+    .in-addition-section .container{
+        padding: 0em 0.8em;
+    }
+    .in-addition-section .creditor-deptor-persons-content:first-child .creditor-deptor-persons{
+        margin-top: 0.1em;
+    }
+    .form-input-container {
+        width: 100%;
+    } 
+    .deptor-addition{
+        margin-top: 24px;
+    }
+
+    .row .deptor-section .creditor-deptor-persons-content:not(:first-child) {
+        width: 100%;
+        margin-right: 0px;
+        margin-left: 4%;
+    }
+    .page-content {
+        min-height: calc(100vh - 80px - 91px - 40px);
+        /* padding-top: 95px; */
+        background-color: transparent;
+    }
+    .btn-transparent-noborder.main-btn {
+        padding: 17px 0;
+    }
+    .header.page-title {
+        padding: 32px 0;
+    }
+    .creditor-deptor-persons{
+        padding: 0px 16px;
+    }
+    .deptor-addition .add-creditor-step{
+        margin-left: 18px;
+     }
+     .add-creditor-step {
+         margin-left: 36px;
+     }
+     .main-btn {
+        padding: 0.9em 1em;
+    }
+    .second-selector .select-arraw{
+        left: 90%;
+    }
+}
+
+
+/* //////////////////////////////////////////////////////////////////////////////////////// for Modals */
+/* Modal header */
+.modal_header{
+    height: 60px;
+    padding: 0px 40px;
+    background-color: #3F3F46;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    color: var(--white-color);
+    font-weight: normal;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+      /* min-height: ; */
+    background-color: #fefefe;
+    margin: 7% auto; 
+    padding: 0px 0px 0px;
+    border: 1px solid #888;
+    width: 820px; /*change it*/
+    box-shadow: 0px 15px 20px #00000029;
+    border-radius: 8px;
+    background-color: var(--white-color);
+    /* min-height: 900px; */
+  }
+  .rectangle{
+    width: 10px;
+    display: inline-block;
+    background: var(--input-blue-color);
+    height: 24px;
+    -webkit-transform: skew(34deg);
+    background-color: var(--light-gray); 
+  }
+
+  #wrapper_tabs .pallagram_tabs , .rectangle{
+    height: 54px;
+    -webkit-transform: skew(15deg);
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .pallagram_tabs{
+    background-color: var(--light-gray); 
+  }
+  .step-header{
+    -webkit-transform: skew( -15deg);
+    }
+
+    .pallagram_tabs .step-header{
+        margin-left: 45px;
+    }
+    .modal-body{
+        padding: 2rem;
+    }
+  /* The Close Button */
+  .close {
+    float: right;
+    font-size: 20px;
+    font-weight: normal;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  #wrapper_tabs{
+    justify-content: flex-start;
+    border-bottom: 4px solid var(--input-blue-color);
+}
+
+.pallagram_tabs .step-header {
+    margin-left: 45px;
+}
+
+
+/* for the Modal form  */
+.form-content{
+    margin-top: 68px;
+}
+.mt-24{
+    margin-top: 24px;
+}
+.person-name-container-header{
+    font-size: 20px;
+    color: var(--main-color);
+    font-weight: normal;
+}
+.person-name-section{
+    margin-top: 18px;
+}
+.address-content .form-input-container , .address-content .form-input-container input{
+    width: 100%;
+}
+.address-content .col{
+    padding-right: 0px;
+}
+.optional-input-container .form-input-container ,.optional-input-container .form-input-container input{
+    width: 100%;
+}
+.e-mail-input{
+    padding-right: 0px;
+}
+.deptor-type .radio-button-content{
+    margin-top: 10px;
+}
+.deptor-type{
+    margin-top: 38px;
+}
+
+.d-none{
+    display: none;
+}
+.submit-btn .main-btn{
+    width: 51%;
+    padding: 1.2em 3em;
+}
+.deptor-attachment ,.deptor-attachment2{
+    display: none;
+}
+.second-tab-content{
+    display: none;
+}
+.selected{
+    /* background-color: var(--light-gray); */
+    background-color: var(--input-blue-color);
+    color: var(--white-color);  
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Modal in mobile design */
+@media only screen and (max-width: 768px) {
+    .modal-content{
+        width: 95%;
+        margin-top: 29%;
+    }
+    .modal-body{
+        padding:1em;
+    }
+    #wrapper_tabs .pallagram_tabs, .rectangle{
+        min-width: 53%;
+    }
+    .person-name input ,
+    .city-input  input,
+    .person-name .form-input-container,
+    .city-input .form-input-container{
+        width: 100%;
+    }
+    .address-content .form-input-container, .address-content .form-input-container input{
+        width: 98.5%;
+    }
+    #add-creditor-form  .form-input-container label{
+        top: 6px;
+    }
+    .e-mail-input{
+        padding-right: 12px;
+        margin-top: 24px;
+    }
+    #add-creditor-form .form-input-container input{
+        width: 100%;
+    } 
+    .submit-btn .main-btn{
+        max-width: 99%;
+        min-width: 92%;
+        padding: 1.2em 10px;
+    }
+  .mt-s-24{
+    margin-top: 24px;
+  }
+  .address , .national-id-address{
+    min-height: 122px;
+  }
+  .desktop{
+      display: none;
+  }
+  .modal_header{
+    padding: 18px 16px;
+  }
+
+
+}
+@media only screen and (width: 768px) {
+    .e-mail-input{
+        margin-top: 0px;
+    }
+    .mt-s-24{
+        margin-top: 0px;
+      }
+}
+
+.error_gender_deptor_radio_tab2 ,
+ .error_deptor_type_radio_tab ,
+  .error_creditor_type_radio_tab ,
+ .gender-creditor-tab1-error ,
+ .error_creditor_gender_tab2,
+ #error-radio-message,
+ .gender-deptor-tab1-error{
+    display: none;
+    color: var(--input-red-color);
+    font-size: 12px;
+    margin-left: 16px;
+    /* text-align: left; */
+} 
+.deptor-attachment-parent{
+    display: none;
+}
+
+
+#deptor-Modal .form-input-container , #deptor-Modal .form-input-container input,
+ #creditor-Modal .form-input-container , #creditor-Modal .form-input-container input {
+    width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    .creditor-deptor-persons-content {
+        margin: 0px;
+    }
+    .creditor-deptor-persons{
+        padding: 0px 1.8em;
+     }
+
+}
+
+/* fix the document name in uploaded documents */
+@media only screen and (max-width: 400px) {
+    .document-name-container{
+        max-width: 83%;
+        margin-left: 16px;   
+        }
+}
+
+.header-section.all-docs{
+    margin-bottom: 24px;
+}
+
+/* specifically hide the arrow on focus */
+#case-status:hover::-webkit-calendar-picker-indicator {
+	display: none !important;
+}
+/* .form-input-container #case-status::-webkit-calendar-picker-indicator {
+    display: none !important;
+    background-color: yellow;
+  } */

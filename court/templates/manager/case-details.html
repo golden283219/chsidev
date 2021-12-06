@@ -1,0 +1,81 @@
+{% extends '../layouts/base.html' %}
+
+{% block title %}
+Case details
+{% endblock %}
+
+{% load static %}
+
+{% block styles %}
+<link href="{% static 'admin-account/css/case-details.css' %}" rel="stylesheet">
+<link href="{% static 'admin-account/css/manager-case-details.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<section class="page-content">
+    <div class="container">
+        <h1 class=" header page-title mb-0">
+            Дело: 00006
+        </h1>
+        <div class="row two-cols-occupied">
+            <div class="col-12 col-md-8">
+
+                <div class="page-section">
+                    <div class="bg-white create-case-step case-type-step">
+                        <div class="header-section">
+                            <h2 class="header-content">
+                                Отговорник по делото
+                            </h2>
+                        </div>
+                        <div class="form-input-container selection-input court-type-selection">
+                            <div class="select-arraw"></div>
+                            <select name="status" id="status" class="form-input select">
+                                <option value="" class="d-none"></option>
+                                <option value="lawyer-1">lawyer 1 </option>
+                                <option value="lawyer-2">lawyer 2</option>
+                                <option value="lawyer-3">lawyer 3</option>
+                            </select>
+                            <label for="status">Изберете юрист</label>
+
+                            <div class="selection-feedback d-md-inline-block">
+                                <!-- todo_back: hide this btn when the user successfully saves his lawyer selection -->
+                                <button class="main-btn btn-blue">РАЗПРЕДЕЛИ</button>
+
+                                <!-- todo_back: show this div when the user successfully saves his lawyer selection -->
+                                <div class="alert alert-success" role="alert">
+                                    <i class="fas fa-check me-2"></i>
+                                    Успешно разпределение!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-section">
+                    {% include 'layouts/case-page-components/case-parties-section.html' %}
+                </div>
+                <div class="page-section">
+                    {% include 'layouts/case-page-components/documents-section.html' %}
+                </div>
+
+                <div class=" add-refuse-button-container mt-5">
+                    <button class="btn-black-noborder"  onclick='location.href ="{%url "cases" %}"'>НАЗАД</button>
+                </div>
+
+            </div>
+
+            <div class="col-md-4 case-history-container d-none d-md-block">
+                {% include 'layouts/case-page-components/case-history.html' %}
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'dependencies/Pristine/dist/pristine.min.js' %}"></script>
+<script src="{% static 'admin-account/js/case-details.js' %}" crossorigin="anonymous"></script>
+{% endblock %}

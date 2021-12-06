@@ -1,0 +1,174 @@
+{% extends '../layouts/base.html' %}
+
+{% block title %}
+cases list
+{% endblock %}
+
+{% load static %}
+
+{% block styles %}
+<link href="{% static 'admin-account/css/case-details.css' %}" rel="stylesheet">
+<link href="{% static 'admin-account/css/cases-list.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<section class="page-content">
+  <div class="container">
+    <h1 class="page-title">Създаване на дело:
+      <span class="case-id">00006</span>
+    </h1>
+    <h2 class="section-title">
+      Заглавие на секцията
+    </h2>
+    <div class="row two-cols-occupied justify-content-between">
+      <div class="col-12 col-md-8">
+        <div class="accordion" id="accordionExample">
+          {% for x in ''|center:31 %}
+            {%if forloop.counter|divisibleby:2%}
+          <div class="accordion-item">
+            <!-- accordion Header -->
+            <h2 class="accordion-header" id="headingOne">
+              <div class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{forloop.counter}}"
+                aria-expanded="true" aria-controls="collapse-{{forloop.counter}}" onclick="toggleAccordion(event)">
+                <div class="left-content">
+                  <span>{{forloop.counter}}.</span>
+                  <span class="case-title">Заглавие</span>
+                </div>
+                <div class="references-count">
+                  <span>4 справки</span>
+                </div>
+              </div>
+            </h2>
+            <!-- accordion body -->
+            <div id="collapse-{{forloop.counter}}" class="accordion-collapse collapse " aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample">
+              <div class="row accordion-body justify-content-center">
+                <!-- alert Message -->
+                <div class="alert alert-primary" role="alert">
+                  <div class="row">
+                    <div class="col-7">
+                      <div class="d-flex justify-content-between  alert-left-content">
+                        <span class="alert-title">
+                          Иван Иванов
+                        </span>
+                        <span class="middle-section">
+                          КАТ / МПС
+                        </span>
+                       </div>
+                        
+                    </div>
+                    <div class="col-5 delete-icon-container">
+                      <span class="delete-icon">
+                        <img src="{% static 'images/delete.svg' %}">
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <!-- todo_back ==> in case of two option  -->
+                <div class="col-12 col-md-12 col-lg-9 selectors-seciton">
+                  <div class="row">
+                    <div class="col-12 col-lg-6  form-input-container selection-input ">
+                      <div class="select-arraw"></div>
+                      <select name="status" id="status" class="form-input select">
+                        <option value="" class="d-none"></option>
+                        <option value="Входирано">Входирано</option>
+                        <option value="Активно">Активно</option>
+                        <option value="Приключено">Приключено</option>
+                      </select>
+                      <label for="status">Изберете опция</label>
+                    </div>
+                    <div class="col-12 col-lg-6  form-input-container selection-input ">
+                      <div class="select-arraw"></div>
+                      <select name="status" id="status" class="form-input select">
+                        <option value="" class="d-none"></option>
+                        <option value="Входирано">Входирано</option>
+                        <option value="Активно">Активно</option>
+                        <option value="Приключено">Приключено</option>
+                      </select>
+                      <label for="status">Изберете длъжник</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-3  selectors-btn">
+                  <button class="main-btn btn-blue ">
+                    ДОБАВИ
+                  </button>
+                </div>
+                  <!--**** the End **** -->
+              </div>
+            </div>
+          </div>
+          {%else%}
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <div class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{forloop.counter}}"
+                aria-expanded="true" aria-controls="collapse-{{forloop.counter}}" onclick="toggleAccordion(event)">
+                <div class="left-content">
+                  <span>{{forloop.counter}}.</span>
+                  <span class="case-title">Заглавие</span>
+                </div>
+                <div class="references-count">
+                  <!-- todo_back ===> if it is one refrence put (справка) else put (справки)-->
+                  <span>4 справки</span>
+                </div>
+              </div>
+            </h2>
+            <div id="collapse-{{forloop.counter}}" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <div class="row">
+                  <!-- todo_back ==> in case of one option   -->
+                  <div class="col-12 col-lg-6 selectors-seciton">
+                    <div class="row">
+                      <div class="col-12 form-input-container selection-input court-type-selection">
+                        <div class="select-arraw"></div>
+                        <select name="status" id="status" class="form-input select">
+                          <option value="" class="d-none"></option>
+                          <option value="Входирано">Входирано</option>
+                          <option value="Активно">Активно</option>
+                          <option value="Приключено">Приключено</option>
+                        </select>
+                        <label for="status">Изберете длъжник</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-3  selectors-btn">
+                    <button class="main-btn btn-blue ">
+                      ДОБАВИ
+                    </button>
+                  </div>
+                   <!--**** the End **** -->
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          {% endif%}
+
+        {%endfor%}
+          
+        </div>
+      </div>
+
+      <div class="col-md-4 case-history-container d-none d-md-block">
+        {% include 'layouts/case-page-components/case-history.html' %}
+      </div>
+    </div>
+    <div class=" add-refuse-button-container mt-5">
+      <button class="btn-black-noborder" onclick='location.href ="{%url "cases" %}"'>ОТКАЗ</button>
+      <button class="main-btn btn-blue last-section-button" onclick='location.href ="{%url "case-summary" %}"'>ГЕНЕРИРАНЕ НА ДЕЛОТО</button>
+    </div>
+  </div>
+
+
+  </div>
+
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'dependencies/Pristine/dist/pristine.min.js' %}"></script>
+<script src="{% static 'dependencies/bootstrap/js/popper.min.js' %}"></script>
+<script src="{% static 'admin-account/js/case-details.js' %}" crossorigin="anonymous"></script>
+{% endblock %}
